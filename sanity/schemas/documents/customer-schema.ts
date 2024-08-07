@@ -1,8 +1,8 @@
 import { defineType, defineField } from 'sanity'
 
-const review = defineType({
-	name: 'review',
-	title: 'Review',
+const customer = defineType({
+	name: 'customer',
+	title: 'Customer',
 	type: 'document',
   fields: [
     defineField({
@@ -10,23 +10,10 @@ const review = defineType({
       type: 'defaultImage',
     }),
     defineField({
-      name: 'name',
-      type: 'string',
-    }),
-    defineField({
       name: 'title',
       title: 'Company Title',
       type: 'string',      
     }),
-    defineField({
-      name: 'content',
-      type: 'array',
-      of: [
-        {
-          type: 'block',
-        },
-      ],
-    })
   ],
   preview: {
     select: {
@@ -43,4 +30,4 @@ const review = defineType({
   },
 })
 
-export default review
+export default customer

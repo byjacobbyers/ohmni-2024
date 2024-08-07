@@ -6,6 +6,7 @@ import page from './documents/page-schema'
 import site from './documents/site-schema'
 import navigation from './documents/navigation-schema'
 import review from './documents/review-schema'
+import customer from './documents/customer-schema'
 
 // components
 import sections from './components/page-builder-schema'
@@ -39,6 +40,7 @@ const schemas = [
   site,
   navigation,
   review,
+  customer,
 
   // components
   sections,
