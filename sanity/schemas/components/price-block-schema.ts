@@ -35,16 +35,6 @@ const priceBlock = defineType({
       ],
       validation: (Rule) => Rule.max(4),
     }),
-    defineField({
-      name: 'ctaContent',
-      title: 'CTA Content',
-      type: 'array',
-      of: [
-        {
-          type: 'block',
-        },
-      ],
-    }),
   ],
   preview: {
     select: {
