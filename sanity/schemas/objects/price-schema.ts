@@ -35,17 +35,20 @@ const price = defineType({
         },
       ],
     }),
-    defineField({
-      title: "Payment Link",
-      name: 'payment',
-      type: 'string',
-    }),
-    defineField({
-      title: "Book a Call Link",
-      name: 'book',
-      type: 'string',
-    }),
   ],
+  preview: {
+		select: {
+			name: 'title',
+      featured: 'featured',
+		},
+		prepare(selection) {
+			const { name, featured } = selection
+			return {
+				title: `${name}`,
+        subtitle: featured ? 'Featured' : '',
+			}
+		},
+	},
 });
 
 export default price;

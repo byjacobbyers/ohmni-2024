@@ -17,13 +17,13 @@ const customer = defineType({
   ],
   preview: {
     select: {
-      title: 'name',
+      title: 'title',
       image: 'image',
     },
     prepare(selection) {
       const { title, image } = selection
       return {
-        title: `${title}`,
+        title: title,
         media: image,
       }
     },

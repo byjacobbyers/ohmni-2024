@@ -1,12 +1,11 @@
 import { defineType, defineField } from "sanity";
-import {SparklesIcon} from '@sanity/icons'
+import {PresentationIcon} from '@sanity/icons'
 
-
-const priceBlock = defineType({
-  title: "Price Block",
-  name: "priceBlock",
-  icon: SparklesIcon,
+const formBlock = defineType({
+  title: "Form Block",
+  name: "formBlock",
   type: "object",
+  icon: PresentationIcon,
   fields: [
     defineField({
 			title: 'Active?',
@@ -24,27 +23,24 @@ const priceBlock = defineType({
         description: "The anchor for the section. No hash symbols. Optional.",
       }
     ),
-    defineField({
-      title: "Price Columns",
-      name: "columns",
-      type: "array",
-      of: [
-        {
-          type: "price",
-        },
-      ],
-      validation: (Rule) => Rule.max(4),
-    }),
-    defineField({
-      name: 'ctaContent',
-      title: 'CTA Content',
-      type: 'array',
-      of: [
-        {
-          type: 'block',
-        },
-      ],
-    }),
+    defineField(
+      {
+        title: "Form ID",
+        name: "formId",
+        type: "string",
+      }
+    ),
+    defineField(
+      {
+        name: 'content',
+        type: 'array',
+        of: [
+          {
+            type: 'block',
+          },
+        ],
+      }
+    ),
   ],
   preview: {
     select: {
@@ -53,11 +49,11 @@ const priceBlock = defineType({
     },
     prepare({title, active}) {
       return {
-        title: 'Pricing',
+        title: 'Form Block',
         subtitle: active ? 'Active' : 'Inactive',
       }
     }
   }
 });
 
-export default priceBlock;
+export default formBlock;

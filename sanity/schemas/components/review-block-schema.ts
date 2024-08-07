@@ -23,15 +23,8 @@ const reviewBlock = defineType({
       description: "The anchor for the section. No hash symbols. Optional.",
     }),
     defineField({
-      name: 'titles',
-      type: 'array',
-      description: 'Rotating titles for the review block.',
-      of: [
-        {
-          name: 'title',
-          type: 'string',
-        },
-      ],
+      name: 'title',
+      type: 'string',
     }),
     defineField({
       title: "Reviews",

@@ -9,11 +9,13 @@ const pageBuilder = defineField({
 	of: [
 		{ type: 'heroBlock'},
 		{ type: 'ctaBlock' },
+		{ type: 'ctaForm' },
 		{ type: 'columnBlock' },
 		{ type: 'priceBlock' },
 		{ type: 'reviewBlock' },
 		{ type: 'videoBlock' },
 		{ type: 'textBlock' },
+		{ type: 'formBlock' },
 	],
 	components: {
 		input: PageBuilderInput,

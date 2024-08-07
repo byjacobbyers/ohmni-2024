@@ -19,6 +19,8 @@ import videoBlock from './components/video-block-schema'
 import priceBlock from './components/price-block-schema'
 import textBlock from './components/text-block-schema'
 import heroBlock from './components/hero-block-schema'
+import ctaForm from './components/cta-form-schema'
+import formBlock from './components/form-block-schema'
 
 // objects
 import defaultImage from './objects/default-img-schema'
@@ -53,6 +55,8 @@ const schemas = [
   priceBlock,
   textBlock,
   heroBlock,
+  ctaForm,
+  formBlock,
 
   // objects
   defaultImage,

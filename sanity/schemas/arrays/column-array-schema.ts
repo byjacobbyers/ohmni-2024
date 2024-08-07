@@ -3,7 +3,7 @@ import {InlineElementIcon} from '@sanity/icons'
 
 // Define a column block with content and column fields. Maximum of 3 columns.
 const columnArray = defineType({
-  title: "Column List",
+  title: "Column Array",
   name: "columnArray",
   icon: InlineElementIcon,
   type: "object",
@@ -26,7 +26,7 @@ const columnArray = defineType({
     prepare(selection) {
       const { title } = selection
       return {
-        title: 'Column List'
+        title: 'Column Array'
       }
     }
   }
