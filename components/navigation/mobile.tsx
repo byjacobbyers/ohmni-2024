@@ -38,7 +38,7 @@ const MobileNav: React.FC<NavProps> = ({
             className="w-full"
           >
             <Route data={item} className='flex w-full'>
-              <Button variant="outline" size="navigation" onClick={handleItemClick}>
+              <Button variant="outline" onClick={handleItemClick}>
                 {item.title ? item.title : 'Needs title'}
               </Button>
             </Route>

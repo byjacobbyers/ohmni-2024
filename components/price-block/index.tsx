@@ -18,12 +18,9 @@ import { Button } from "@/components/ui/button"
 const PriceBlock: React.FC<PriceBlockType> = ({
   active,
   componentIndex,
-  lastComponent,
   anchor,
   content,
   columns,
-  ctaContent,
-  cta
 }) => {
 
 
@@ -102,107 +99,12 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                         })}
                       </div>
                     </div>
-                    <div className='price-payment flex flex-col items-center'>
-                      {column.payment && (
-                        <div className='mt-16 flex justify-center md:justify-start'>
-                          <Link href={column.payment} >
-                            <motion.div
-                              initial={{ 
-                                scale: 1
-                              }}
-                              whileHover={{ 
-                                scale: 1.05
-                              }}
-                              whileTap={{ 
-                                scale: 0.95
-                              }}
-                              transition={{ 
-                                type: 'spring',
-                                duration: 0.5
-                              }}
-                              className='flex w-full'
-                            >
-                              <Button variant={`${column.featured ? 'gradient' : 'secondary'}`} >
-                                Get Started
-                              </Button>
-                            </motion.div>
-                          </Link>
-                        </div>
-                      )}
-                      {column.book && (
-                        <div className='mt-5 text-gray-300 hover:text-white flex justify-center md:justify-start underline'>
-                          <Link href={column.book}>
-                            Book a Call
-                          </Link>
-                        </div>
-                      )}
-                    </div>
                   </div>
                 </div>
               )
             })}
           </motion.div>
-          {ctaContent && (
-            <motion.div 
-              className='flex flex-col items-center w-full border-[#c8a7f2] border-2 rounded-3xl p-5 lg:p-10'
-              initial={{ 
-                opacity: 0,
-                scale: 0.95
-              }}
-              whileInView={{ 
-                opacity: 1,
-                scale: 1
-              }}
-              viewport={{ once: true }} 
-              transition={{ 
-                delay: componentIndex !== 0 ? 0.5 : 0,
-                type: 'spring',
-                duration: 1.5
-              }}
-            >
-              {ctaContent && (
-                <div className='content bg-gradient-to-b from-[#d6d5d5] to-white text-transparent bg-clip-text'>
-                  <SimpleText content={ctaContent} />
-                </div>
-              )}
-              {cta && cta.active && (
-                <div className='mt-5 flex justify-center md:justify-start'>
-                  <Route data={cta.route} className='flex'>
-                    <motion.div
-                      initial={{ 
-                        scale: 1
-                      }}
-                      whileHover={{ 
-                        scale: 1.05
-                      }}
-                      whileTap={{ 
-                        scale: 0.95
-                      }}
-                      transition={{ 
-                        type: 'spring',
-                        duration: 0.5
-                      }}
-                      className='flex w-full'
-                    >
-                      <Button variant='secondary' fontSize='lg' size='lg'>
-                        {cta?.route?.title ? cta?.route?.title : 'Learn More'}
-                      </Button>
-                    </motion.div>
-                  </Route>
-                </div>
-              )}
-            </motion.div>
-          )}
         </div>
-        {componentIndex !== lastComponent && (
-          <motion.div 
-            className='w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-[#53546d] to-indigo-950' 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }} 
-            transition={{ delay: 0.25 }}
-          />
-        )}
       </section>
     )
   }

@@ -49,7 +49,7 @@ const FooterNav: React.FC<NavProps> = ({
                 }}
                 className='flex w-full'
               >
-                <Button variant="secondary" size="navigation">
+                <Button variant="secondary">
                   {item.title ? item.title : 'Needs title'}
                 </Button>
               </motion.div>

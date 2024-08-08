@@ -20,7 +20,6 @@ const TextBlock: React.FC<TextBlockType> = ({
   active,
   componentIndex,
   anchor,
-  lastComponent,
   content,
   contentAlignment,
 }) => {
@@ -66,15 +65,6 @@ const TextBlock: React.FC<TextBlockType> = ({
           >
             <NormalText content={content.text} />
           </motion.div>
-        )}
-        {componentIndex !== lastComponent && (
-          <motion.div 
-            className='w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-[#53546d] to-indigo-950' 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }} 
-            transition={{ delay: 0.25 }}
-          />
         )}
       </section>
     )

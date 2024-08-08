@@ -91,14 +91,13 @@ const Sections: React.FC<ComponentProps> = ({ body }) => {
 		const Component = serializer?.component
 		const args = serializer?.args
 		const Wrapper = serializer?.wrapper
-		const bodyLength = body.length - 1
 
 		if (!Component || !serializer)
 			throw new Error(`No serializer implemented for body object: ${type}`)
 
 		return Wrapper ? (
 			<Wrapper key={item._key}>
-				<Component {...item} {...args} componentIndex={index} lastComponent={bodyLength} />
+				<Component {...item} {...args} componentIndex={index} />
 			</Wrapper>
 		) : (
 			<Component key={item._key} {...item} {...args} componentIndex={index} />

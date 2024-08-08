@@ -18,9 +18,8 @@ import { AiFillStar } from "react-icons/ai";
 const ReviewBlock: React.FC<ReviewBlockType> = ({
   active,
   componentIndex,
-  lastComponent,
   anchor,
-  titles,
+  title,
   reviews
 }) => {
   const [index, setIndex] = useState(0);
@@ -29,18 +28,6 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
   useEffect(() => {
     setIsMobileView(isMobile)
   }, [])
-
-  useEffect(() => {
-    if (titles) {
-      const id = setInterval(() => {
-        setIndex((state) => {
-          if (state >= titles.length - 1) return 0;
-          return state + 1;
-        });
-      }, 2000);
-      return () => clearInterval(id);
-    }
-  }, [titles]);
 
   if (active) {
     return (
@@ -51,7 +38,6 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
         <div className='flex flex-col gap-y-24 text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12 content'>
           <div className='w-full relative flex justify-center pb-16 px-5'>
             <AnimatePresence mode='wait'>
-              {titles && titles.length > 0 && (
                 <motion.div 
                   className='titles w-full text-center'
                   key={index}  // Ensure unique key for each title
@@ -61,9 +47,8 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
                   transition={{ ease: "easeInOut" }}
                   style={{ position: "absolute" }}
                 >
-                  <h2 className='text-4xl lg:text-5xl xl:text-6xl font-bold'>{titles[index]}</h2>
+                  <h2 className='text-4xl lg:text-5xl xl:text-6xl font-bold'>{title}</h2>
                 </motion.div>
-              )}
             </AnimatePresence>
           </div>
           <div className='flex flex-wrap gap-y-16 w-full justify-center xl:justify-between'>
@@ -120,15 +105,6 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
             })}
           </div>
         </div>
-        {componentIndex !== lastComponent && (
-          <motion.div 
-            className='w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-[#53546d] to-indigo-950' 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }} 
-            transition={{ delay: 0.25 }}
-          />
-        )}
       </section>
     )
   }
