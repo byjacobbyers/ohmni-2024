@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss"
+import { inknut } from "./app/(site)/fonts"
 
 const config = {
+  
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -18,6 +20,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        inknut: ['var(--font-inknut)'],
+        inter: ['var(--font-inter)'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -74,7 +80,10 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"), 
+    require('@tailwindcss/typography'),
+  ],
 } satisfies Config
 
 export default config
