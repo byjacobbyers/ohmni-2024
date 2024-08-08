@@ -1,0 +1,11 @@
+
+.hero-block {
+
+  h1 {
+    @apply text-5xl;
+  }
+
+  p {
+    @apply text-2xl;
+  }
+}

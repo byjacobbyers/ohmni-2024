@@ -108,7 +108,7 @@ const Header: React.FC<HeaderProps> = ({
     <>
       <header 
         ref={targetRef}
-        className='sticky top-0 z-50 w-full flex flex-col bg-background p-5'
+        className='sticky top-0 z-50 w-full flex flex-col bg-background pt-5 px-5'
       >
         <div className={`flex flex-wrap justify-between items-center w-full px-0 md:px-2`}>
           <Link href='/' className='flex items-center gap-2' onClick={handleLogoClick}>

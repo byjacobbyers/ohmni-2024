@@ -1,14 +1,70 @@
+'use client'
+
+// Tools
+import { motion } from "framer-motion"
+
+// Types
+import { HeroBlockType } from "@/types/components/hero-block-type"
+
+// Components
+import SimpleText from '@/components/simple-text'
+import Route from '@/components/route'
+import { Button } from "@/components/ui/button"
 
 
+const HeroBlock: React.FC<HeroBlockType> = ({
+  active,
+  componentIndex,
+  content,
+  cta
+}) => {
 
-const HeroBlock: React.FC<any> = ({}) => {
+  if (active) {
+    return (
+      <section className={`hero-block flex w-full px-5 gap-24`}>
+        <motion.div 
+          className="w-full md:w-2/3 space-y-5 "
+          initial={{ 
+            opacity: 0,
+            scale: 0.95
+          }}
+          whileInView={{ 
+            opacity: 1,
+            scale: 1
+          }}
+          viewport={{ once: true }} 
+          transition={{ 
+            delay: componentIndex !== 0 ? 0.5 : 0,
+            type: 'spring',
+            duration: 1.5
+          }}
+        >
+          <SimpleText content={content} />
+        </motion.div>
+        <motion.div 
+          className="w-full md:w-1/3 h-96 bg-gray-500 mt-0 md:mt-24"
+          initial={{ 
+            opacity: 0,
+            scale: 0.95
+          }}
+          whileInView={{ 
+            opacity: 1,
+            scale: 1
+          }}
+          viewport={{ once: true }} 
+          transition={{ 
+            delay: componentIndex !== 0 ? 0.5 : 0,
+            type: 'spring',
+            duration: 1.5
+          }}
+        >
+         
+        </motion.div>
+      </section>
+    )
+  }
 
-  return (
-    <div>
-      Hero Block
-    </div>
-  )
-
+  return null
 }
 
 export default HeroBlock

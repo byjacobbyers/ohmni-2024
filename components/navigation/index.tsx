@@ -46,7 +46,7 @@ const Nav: React.FC<NavProps> = ({
                   type: 'spring',
                   duration: 0.5
                 }}
-                className='flex w-full font-inknut text-3xl'
+                className='flex w-full  text-3xl'
               >
                 {item.title ? item.title : 'Needs title'}
               </motion.div>

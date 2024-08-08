@@ -29,7 +29,7 @@ const CtaBlock: React.FC<CtaBlockType> = ({
         <div className='flex flex-col text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12'>
           {content && (
             <motion.div 
-              className='content'
+              className='prose max-w-none'
               initial={{ 
                 opacity: 0,
                 scale: 0.95

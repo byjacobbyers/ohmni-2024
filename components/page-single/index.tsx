@@ -18,7 +18,7 @@ export default function Page({ page }: { page: SanityDocument }) {
   return (
     <>
       <Header items={pageNav?.header} />
-      <main className="flex min-h-screen flex-col items-center justify-between">
+      <main className="flex min-h-screen flex-col items-center gap-y-10 md:gap-y-24 pt-10 md:pt-24">
         <Sections body={sections} />
       </main>
       {/* <Footer items={pageNav?.footer} /> */}
