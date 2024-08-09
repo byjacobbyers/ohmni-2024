@@ -1,4 +1,5 @@
 import { SimpleTextType } from '../objects/simple-text-type'
+import { DefaultImageType } from '../objects/default-img-type'
 
 export type CtaFormType = {
 	active?: boolean
@@ -7,5 +8,5 @@ export type CtaFormType = {
   formId?: string
 	content?: SimpleTextType
 	buttonText?: string
-  file?: any
+  file?: DefaultImageType
 }

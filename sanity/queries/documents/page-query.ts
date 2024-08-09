@@ -27,6 +27,13 @@ export const PageQuery = groq`
           ${imageQuery}
         },
       },
+      _type == 'ctaForm' => {
+        ...,
+       
+        file {
+          ${imageQuery}
+        },
+      },
       _type == 'columnBlock' => {
         ...,
         rows[] {
