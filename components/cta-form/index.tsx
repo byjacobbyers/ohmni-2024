@@ -24,8 +24,6 @@ const CtaForm: React.FC<CtaFormType> = ({
   buttonText
 }) => {
 
-  console.log('file', file)
-
   if (active) {
     return (
       <section 

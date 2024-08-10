@@ -24,3 +24,11 @@
       @apply text-xl;
     }
 }
+
+.customer-ref {
+  @apply text-white;
+
+  h2 {
+    @apply text-3xl;
+  }
+}

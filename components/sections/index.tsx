@@ -14,8 +14,7 @@ import ReviewBlock from '@/components/review-block'
 import VideoBlock from '@/components/video-block'
 import TextBlock from '@/components/text-block'
 import FormBlock from '@/components/form-block'
-import heroBlock from '@/sanity/schemas/components/hero-block-schema'
-import ctaForm from '@/sanity/schemas/components/cta-form-schema'
+import CustomerRef from '../customer-ref'
 
 interface BodySerializers {
 	[key: string]: {
@@ -60,6 +59,10 @@ const bodySerializers: BodySerializers = {
   },
 	formBlock: {
 		component: FormBlock,
+		wrapper: ({ children }) => <>{children}</>,
+	},
+	customerRef: {
+		component: CustomerRef,
 		wrapper: ({ children }) => <>{children}</>,
 	},
 }
