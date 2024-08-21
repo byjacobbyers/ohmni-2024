@@ -33,30 +33,18 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
     return (
       <section
         id={`${anchor ? anchor : 'review-block-' + componentIndex}`}
-        className={`w-full ${componentIndex !== 0 && 'pt-16 lg:pt-24 xl:pt-36'} flex flex-col items-center`}
+        className={`review-block w-full flex flex-col items-center px-5`}
       >
-        <div className='flex flex-col gap-y-24 text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12 content'>
-          <div className='w-full relative flex justify-center pb-16 px-5'>
-            <AnimatePresence mode='wait'>
-                <motion.div 
-                  className='titles w-full text-center'
-                  key={index}  // Ensure unique key for each title
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -20, opacity: 0 }}
-                  transition={{ ease: "easeInOut" }}
-                  style={{ position: "absolute" }}
-                >
-                  <h2 className='text-4xl lg:text-5xl xl:text-6xl font-bold'>{title}</h2>
-                </motion.div>
-            </AnimatePresence>
+        <div className='container flex flex-col text-center gap-y-10'>
+          <div className='w-full relative flex justify-center'>
+            <h2 className='text-3xl max-w-5xl'>{title}</h2>
           </div>
-          <div className='flex flex-wrap gap-y-16 w-full justify-center xl:justify-between'>
+          <div className='flex flex-wrap gap-16 w-full justify-center'>
             {reviews && reviews.map((review, index) => {
               return (
                 <motion.div 
                   key={`review-${index}`} 
-                  className='review text-balance lg:max-w-sm 2xl:max-w-md'
+                  className='review text-balance w-full max-w-2xl  p-5 bg-white border-2 border-black'
                   initial={{ 
                     opacity: 0,
                     scale: 0.95
@@ -72,8 +60,8 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
                     duration: 1.5
                   }}  
                 >
-                  <div className='w-full h-full xl:max-w-sm 2xl:max-w-md flex flex-col items-center  justify-between gap-y-10'>
-                    <div className='review-title w-full flex flex-col items-center gap-y-10'>
+                  <div className='w-full flex flex-col items-center  justify-center gap-y-10'>
+                    <div className='review-title w-full flex flex-col items-center gap-y-5'>
                       <div className='space-y-3'>
                         {review?.image?.asset.url && (
                           <Avatar>
@@ -81,13 +69,13 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
                             <AvatarFallback>{review?.name}</AvatarFallback>
                           </Avatar>
                         )}
-                        <div className='flex gap-x-1 text-[#8f80c6]'>
+                        {/* <div className='flex gap-x-1 text-[#8f80c6]'>
                           <AiFillStar />
                           <AiFillStar />
                           <AiFillStar />
                           <AiFillStar />
                           <AiFillStar />
-                        </div>
+                        </div> */}
                       </div>
                       {review?.content && (
                         <div className='2xl:text-lg space-y-2'>
