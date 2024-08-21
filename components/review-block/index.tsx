@@ -37,7 +37,7 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
       >
         <div className='container flex flex-col text-center gap-y-10'>
           <div className='w-full relative flex justify-center'>
-            <h2 className='text-3xl max-w-5xl'>{title}</h2>
+            <h2 className='text-3xl max-w-6xl'>{title}</h2>
           </div>
           <div className='flex flex-wrap gap-16 w-full justify-center'>
             {reviews && reviews.map((review, index) => {

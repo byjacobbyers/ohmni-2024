@@ -24,12 +24,12 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
     return (
       <section
         id={`${anchor ? anchor : 'column-block-' + componentIndex}`}
-        className={`column-block w-full flex flex-col items-center`}
+        className={`column-block w-full flex flex-col items-center px-5`}
       >
-        <div className='container flex flex-wrap text-center'>
+        <div className='container flex flex-wrap justify-center text-center'>
           {content && (
             <motion.div 
-              className='prose max-w-none w-full pb-16'
+              className='prose max-w-7xl w-full pb-16'
               initial={{ 
                 opacity: 0,
                 scale: 0.95
@@ -48,15 +48,18 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
               <SimpleText content={content} />
             </motion.div>
           )}
-           {rows && rows.map((row, index) => { 
-            return (
-              <div key={index} className='w-full '>
-                {row._type === 'columnArray' ? (
-                  <ColumnArray row={row as ColumnArrayType} />
-                ) : null}
-              </div>
-            )
-           })}
+          <div className='flex flex-col gap-24 w-full'>
+            {rows && rows.map((row, index) => { 
+              return (
+                <div key={index} className='w-full '>
+                  {row._type === 'columnArray' ? (
+                    <ColumnArray row={row as ColumnArrayType} />
+                  ) : null}
+                </div>
+              )
+            })}
+          </div>
+           
         </div>
       </section>
     )
