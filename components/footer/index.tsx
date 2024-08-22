@@ -42,20 +42,21 @@ const Footer: React.FC<FooterProps> = ({
   const year = date.getFullYear()
 
   return (
-    <footer className='flex flex-col items-center py-10 gap-y-10'>
-      {items && (
+    <footer className='flex justify-between items-center bg-gray-900 px-5 py-10 text-white'>
+      {/* {items && (
          <FooterNav data={items} />
-       )}
+       )} */}
+      <small className='w-56 md:w-auto'>© {year} Ohmni Web Technologies. All rights reserved.</small>
       <div className='flex gap-y-10 text-white'>
         {socials?.linkedin && (
           <Link href={socials?.linkedin}>
-            <div className='bg-gradient-to-b from-[#616ab3] to-primary h-10 w-10 rounded-full flex justify-center items-center'>
+            <div className='bg-background text-foreground h-10 w-10 rounded-full flex justify-center items-center'>
               <BiLogoLinkedin size={`1.5rem`} />
             </div>
           </Link>
         )}
       </div>
-      <small>© {year} Spotlight Service. All rights reserved.</small>
+      
     </footer>
   )
 }

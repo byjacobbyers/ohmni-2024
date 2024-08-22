@@ -36,9 +36,26 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
         className={`review-block w-full flex flex-col items-center px-5`}
       >
         <div className='container flex flex-col text-center gap-y-10'>
-          <div className='w-full relative flex justify-center'>
+          
+          <motion.div 
+            className='w-full relative flex justify-center'
+            initial={{ 
+              opacity: 0,
+              scale: 0.95
+            }}
+            whileInView={{ 
+              opacity: 1,
+              scale: 1
+            }}
+            viewport={{ once: true }} 
+            transition={{ 
+              delay: !isMobileView ? 0+index*0.5 : 0,
+              type: 'spring',
+              duration: 1.5
+            }}  
+          >
             <h2 className='text-3xl max-w-6xl'>{title}</h2>
-          </div>
+          </motion.div>
           <div className='flex flex-wrap gap-16 w-full justify-center'>
             {reviews && reviews.map((review, index) => {
               return (
