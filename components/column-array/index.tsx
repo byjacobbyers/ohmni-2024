@@ -57,11 +57,10 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
                   <SanityImage
                     source={column.image}
                     alt={column.image.alt}
-                    className={`w-full`}
-                    sizes={`(min-width: 1920px) 1920px, 100vw `}
-                    width={100}
-                    height={100}
+                    width={150}
+                    height={150}
                     componentIndex={1}
+                    className='object-cover object-center'
                   />
                 </div>
               )}

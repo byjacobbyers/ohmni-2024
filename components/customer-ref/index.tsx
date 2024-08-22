@@ -12,6 +12,7 @@ import { CustomerType } from '@/types/documents/customer-type'
 import { getCustomers } from "@/sanity/queries/documents/customers-query"
 
 // Components
+import SanityImage from "@/components/sanity-image"
 
 const CustomerRef: React.FC<CustomersRefType> = ({
   active,
@@ -48,15 +49,29 @@ const CustomerRef: React.FC<CustomersRefType> = ({
 
               if (customer.title === 'Front Burner Society') {
                 return (
-                  <div key={index} className='w-16'>
-                    <img src={customer.image.asset.url} alt={customer.title} />
+                  <div key={index}>
+                    <SanityImage
+                      source={customer.image}
+                      alt={customer.title}
+                      width={customer.image.asset.metadata.dimensions.width}
+									    height={customer.image.asset.metadata.dimensions.height}
+                      className='object-cover object-center w-16 h-auto'
+									    componentIndex={componentIndex}
+                    />
                   </div>
                 )
               }
 
               return (
-                <div key={index} className='w-3/4 md:w-56'>
-                  <img src={customer.image.asset.url} alt={customer.title} className="w-full" />
+                <div key={index}>
+                  <SanityImage
+                    source={customer.image}
+                    alt={customer.title}
+                    width={customer.image.asset.metadata.dimensions.width}
+                    height={customer.image.asset.metadata.dimensions.height}
+                    className='object-cover object-center w-3/4 md:w-56 h-auto'
+                    componentIndex={componentIndex}
+                  />
                 </div>
               )
             })}
