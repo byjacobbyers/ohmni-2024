@@ -29,7 +29,6 @@ export const PageQuery = groq`
       },
       _type == 'ctaForm' => {
         ...,
-       
         file {
           ${imageQuery}
         },

@@ -6,4 +6,5 @@ export type FormBlockType = {
 	anchor?: string
   formId?: string
 	content?: SimpleTextType
+	formContent?: SimpleTextType
 }

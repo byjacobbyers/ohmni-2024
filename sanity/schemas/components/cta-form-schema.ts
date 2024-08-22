@@ -43,6 +43,17 @@ const ctaForm = defineType({
     ),
     defineField(
       {
+        name: 'formContent',
+        type: 'array',
+        of: [
+          {
+            type: 'block',
+          },
+        ],
+      }
+    ),
+    defineField(
+      {
         title: "Button Text",
         name: "buttonText",
         type: "string",
