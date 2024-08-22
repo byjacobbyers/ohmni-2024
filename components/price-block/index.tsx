@@ -72,12 +72,12 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                     <div className='price-content'>
                       <div className='space-y-5'>
                         {column.title && (
-                          <p className='text-3xl font-medium'>
+                          <p className='text-2xl font-medium'>
                             {column.title}
                           </p>
                         )}
                         {column.price && (
-                          <h2 className='text-7xl font-semibold'>
+                          <h2 className='text-4xl font-semibold'>
                             ${column.price}
                           </h2>
                         )}
@@ -85,9 +85,9 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                           <p>{column.offer}</p>
                         )}
                       </div>
-                      <div className='space-y-5 mt-5'>
+                      <div className='space-y-5 mt-5 text-left'>
                         {column.perks && column.perks.map((perk, index) => (
-                          <div key={index} className='flex gap-x-2'>
+                          <div key={index} className='flex items-start gap-x-2'>
                             <div className='border border-black rounded-md p-1 flex justify-center items-center'>
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
