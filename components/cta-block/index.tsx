@@ -24,33 +24,33 @@ const CtaBlock: React.FC<CtaBlockType> = ({
     return (
       <section
         id={`${anchor ? anchor : 'cta-block-' + componentIndex}`}
-        className={`w-full ${componentIndex !== 0 && 'pt-16 lg:pt-24 xl:pt-36'} flex flex-col items-center`}
+       className="cta-block w-full px-5"
       >
-        <div className='flex flex-col text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12'>
+        <motion.div 
+          className='container py-16 lg:py-24 flex flex-col justify-center items-center p-5 bg-white w-full border-2 border-black min-h-24'
+          initial={{ 
+            opacity: 0,
+            scale: 0.95
+          }}
+          whileInView={{ 
+            opacity: 1,
+            scale: 1
+          }}
+          viewport={{ once: true }} 
+          transition={{ 
+            delay: componentIndex !== 0 ? 0.5 : 0,
+            type: 'spring',
+            duration: 1.5
+          }}
+        >
           {content && (
-            <motion.div 
-              className='prose max-w-none'
-              initial={{ 
-                opacity: 0,
-                scale: 0.95
-              }}
-              whileInView={{ 
-                opacity: 1,
-                scale: 1
-              }}
-              viewport={{ once: true }} 
-              transition={{ 
-                delay: componentIndex !== 0 ? 0.5 : 0,
-                type: 'spring',
-                duration: 1.5
-              }}
-            >
+            <div className='prose text-center max-w-4xl pb-5 md:pb-10'>
               <SimpleText content={content} />
-            </motion.div>
+            </div>
           )}
           {cta && cta.active && (
             <motion.div 
-              className='mt-5 flex justify-center md:justify-start'
+              className='flex justify-center md:justify-start'
               initial={{ 
                 opacity: 0,
                 scale: 0.95
@@ -90,7 +90,7 @@ const CtaBlock: React.FC<CtaBlockType> = ({
               </Route>
             </motion.div>
           )}
-        </div>
+        </motion.div>
       </section>
     )
   }

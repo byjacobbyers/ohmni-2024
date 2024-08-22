@@ -29,12 +29,12 @@ const PriceBlock: React.FC<PriceBlockType> = ({
     return (
       <section
         id={`${anchor ? anchor : 'prices-block-' + componentIndex}`}
-        className={`w-full ${componentIndex !== 0 && 'pt-16 lg:pt-24 xl:pt-36'} flex flex-col items-center`}
+        className={`prices-block w-full flex flex-col items-center px-5`}
       >
-        <div className='flex flex-col gap-y-16 text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12'>
+        <div className='container flex flex-wrap justify-center text-center'>
           {content && (
             <motion.div 
-              className='content'
+              className='prose max-w-7xl w-full'
               initial={{ 
                 opacity: 0,
                 scale: 0.95

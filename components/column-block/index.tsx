@@ -48,7 +48,7 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
               <SimpleText content={content} />
             </motion.div>
           )}
-          <div className='flex flex-col gap-24 w-full'>
+          <div className='flex flex-col gap-16 w-full'>
             {rows && rows.map((row, index) => { 
               return (
                 <div key={index} className='w-full '>
