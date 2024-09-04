@@ -45,7 +45,7 @@ const CustomerRef: React.FC<CustomersRefType> = ({
     return (
       <section
         id={`${anchor ? anchor : 'customer-ref-' + componentIndex}`}
-        className={`customer-ref w-full flex flex-col items-center bg-gray-900 px-5`}
+        className={`customer-ref w-full flex flex-col justify-center bg-gray-900 px-5`}
       >
         <div className='container py-16 lg:py-24 flex flex-col justify-center items-center text-center'>
           <motion.div 
@@ -96,7 +96,7 @@ const CustomerRef: React.FC<CustomersRefType> = ({
                       alt={customer.title}
                       width={customer.image.asset.metadata.dimensions.width}
 									    height={customer.image.asset.metadata.dimensions.height}
-                      className='object-cover object-center w-16 h-auto'
+                      className='object-cover object-center w-16 2xl:w-24 h-auto'
 									    componentIndex={componentIndex}
                     />
                   </motion.div>
@@ -126,7 +126,7 @@ const CustomerRef: React.FC<CustomersRefType> = ({
                     alt={customer.title}
                     width={customer.image.asset.metadata.dimensions.width}
                     height={customer.image.asset.metadata.dimensions.height}
-                    className='object-cover object-center w-3/4 md:w-56 h-auto'
+                    className='object-cover object-center w-3/4 md:w-56 2xl:w-72 h-auto'
                     componentIndex={componentIndex}
                   />
                 </motion.div>

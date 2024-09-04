@@ -33,6 +33,6 @@ section {
   @apply text-white;
 
   h2 {
-    @apply text-3xl;
+    @apply text-3xl 2xl:text-4xl;
   }
 }
