@@ -28,7 +28,7 @@ const HeroBlock: React.FC<HeroBlockType> = ({
       >
         <div className='container flex w-full gap-24'>
           <motion.div 
-            className="w-full md:w-2/3 space-y-5 "
+            className="w-full md:w-2/3 space-y-5 2xl:space-y-10"
             initial={{ 
               opacity: 0,
               scale: 0.95
@@ -47,7 +47,7 @@ const HeroBlock: React.FC<HeroBlockType> = ({
             <SimpleText content={content} />
           </motion.div>
           <motion.div 
-            className="w-full md:w-1/3 h-96 bg-gray-500 mt-0 md:mt-24"
+            className="w-full aspect-lottie md:w-1/3 bg-gray-500 mt-0 md:mt-24"
             initial={{ 
               opacity: 0,
               scale: 0.95
@@ -63,7 +63,6 @@ const HeroBlock: React.FC<HeroBlockType> = ({
               duration: 1.5
             }}
           >
-          
           </motion.div>
         </div>
       </section>

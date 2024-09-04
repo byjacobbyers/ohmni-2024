@@ -83,26 +83,26 @@ const CtaFormDialogue: React.FC<FormProps> = ({
               <DialogTitle>Download the Checklist</DialogTitle>
               <DialogDescription>Fill out the form below to download the file.</DialogDescription>
             </DialogHeader>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
+            <form onSubmit={handleSubmit} className="space-y-4 2xl:space-y-6 2xl:pt-4">
+              <div className="grid grid-cols-2 gap-4 2xl:gap-8">
+                <div className="space-y-2 2xl:space-y-4">
                   <Label htmlFor="firstName">First Name</Label>
                   <Input id="firstName" name="firstName" value={formData.firstName} onChange={handleInputChange} required />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-2 2xl:space-y-4">
                   <Label htmlFor="lastName">Last Name</Label>
                   <Input id="lastName" name='lastName' value={formData.lastName} onChange={handleInputChange} required />
                 </div>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 2xl:space-y-4">
                 <Label htmlFor="email">Company Email</Label>
                 <Input id="email" type="email" name='email' value={formData.email} onChange={handleInputChange} required />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 2xl:space-y-4">
                 <Label htmlFor="companyName">Company Name</Label>
                 <Input id="companyName" name="companyName" value={formData.companyName} onChange={handleInputChange} required />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 2xl:space-y-4">
                 <Label htmlFor="companySize">Company Size</Label>
                 <Select
                   value={formData.companySize}

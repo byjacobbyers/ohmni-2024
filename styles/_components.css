@@ -1,12 +1,16 @@
 
+section {
+  @apply flex items-center 2xl:min-h-[50vh];
+}
+
 .hero-block {
 
   h1 {
-    @apply text-5xl;
+    @apply text-5xl 2xl:text-7xl;
   }
 
   p {
-    @apply text-2xl;
+    @apply text-2xl 2xl:text-4xl;
   }
 }
 

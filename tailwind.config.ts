@@ -16,12 +16,19 @@ const config = {
       center: true,
       screens: {
         "2xl": "1400px",
+        "3xl": "1600px",
+        "4xl": "1800px",
+        "5xl": "2000px",
+        "6xl": "2200px",
       },
     },
     extend: {
       fontFamily: {
         inknut: ['var(--font-inknut)'],
         inter: ['var(--font-inter)'],
+      },
+      aspectRatio: {
+        'lottie': '2/1',
       },
       colors: {
         border: "hsl(var(--border))",

@@ -44,7 +44,7 @@ const CtaBlock: React.FC<CtaBlockType> = ({
           }}
         >
           {content && (
-            <div className='prose text-center max-w-4xl pb-5 md:pb-10'>
+            <div className='prose 2xl:prose-h2:text-4xl 2xl:prose-h2:leading-relaxed text-center max-w-4xl pb-5 md:pb-10'>
               <SimpleText content={content} />
             </div>
           )}
