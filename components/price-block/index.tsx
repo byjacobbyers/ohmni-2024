@@ -26,7 +26,7 @@ const PriceBlock: React.FC<PriceBlockType> = ({
         <div className='container flex flex-wrap justify-center text-center gap-5'>
           {content && (
             <motion.div 
-              className='prose max-w-7xl w-full'
+              className='prose 2xl:prose-h2:text-4xl 2xl:prose-h2:leading-relaxed max-w-7xl w-full'
               initial={{ 
                 opacity: 0,
                 scale: 0.95

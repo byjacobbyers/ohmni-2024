@@ -70,7 +70,7 @@ const CtaFormDialogue: React.FC<FormProps> = ({
       <DialogContent className="sm:max-w-[600px]">
         
         {successMessage ? (
-          <div className="text-center space-y-3 prose">
+          <div className="text-center space-y-3 prose 2xl:prose-h2:text-4xl 2xl:prose-h2:leading-relaxed">
             <h2 className="text-2xl font-bold">Thank You!</h2>
             <p className="pb-3">{successMessage}</p>
             <a href={file.asset.url} download={file.asset.url.split('/').pop()} >

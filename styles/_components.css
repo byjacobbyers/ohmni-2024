@@ -17,15 +17,15 @@ section {
 .column-block {
   
     h2 {
-      @apply text-3xl;
+      @apply text-3xl 2xl:text-4xl;
     }
 
     h3 {
-      @apply text-2xl;
+      @apply text-2xl 2xl:text-3xl;
     }
   
     p {
-      @apply text-xl;
+      @apply text-xl 2xl:text-2xl;
     }
 }
 

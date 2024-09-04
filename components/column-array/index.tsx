@@ -65,7 +65,7 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
                 </div>
               )}
               {column.content && (
-                <div className='prose max-w-none'>
+                <div className='prose 2xl:prose-h2:text-4xl 2xl:prose-h2:leading-relaxed max-w-none'>
                   <SimpleText content={column.content} />
                 </div>
               )}

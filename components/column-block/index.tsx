@@ -29,7 +29,7 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
         <div className='container flex flex-wrap justify-center text-center'>
           {content && (
             <motion.div 
-              className='prose max-w-7xl w-full pb-16'
+              className='prose 2xl:prose-h2:text-4xl 2xl:prose-h2:leading-relaxed max-w-7xl w-full pb-16 2xl:pb-24'
               initial={{ 
                 opacity: 0,
                 scale: 0.95
