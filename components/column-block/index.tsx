@@ -24,7 +24,7 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
     return (
       <section
         id={`${anchor ? anchor : 'column-block-' + componentIndex}`}
-        className={`column-block w-full flex flex-col items-center px-5`}
+        className={`column-block w-full flex flex-col justify-center px-5`}
       >
         <div className='container flex flex-wrap justify-center text-center'>
           {content && (

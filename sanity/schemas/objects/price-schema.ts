@@ -26,6 +26,13 @@ const price = defineType({
       name: 'offer',
       type: 'string',
     }),
+    defineField(
+      {
+        title: "CTA",
+        name: "cta",
+        type: "cta",
+      }
+    ),
     defineField({
       name: 'perks',
       type: 'array',
