@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { DefaultImageType } from "@/types/objects/default-img-type"
+import { motion } from "framer-motion"
 
 interface FormProps {
   file: DefaultImageType
@@ -65,7 +66,24 @@ const CtaFormDialogue: React.FC<FormProps> = ({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>{buttonText}</Button>
+        <motion.div
+          initial={{ 
+            scale: 1
+          }}
+          whileHover={{ 
+            scale: 1.05
+          }}
+          whileTap={{ 
+            scale: 0.95
+          }}
+          transition={{ 
+            type: 'spring',
+            duration: 0.5
+          }}
+          className=''
+        >
+          <Button>{buttonText}</Button>
+        </motion.div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px]">
         
