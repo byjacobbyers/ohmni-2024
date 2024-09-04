@@ -63,7 +63,7 @@ const CustomerRef: React.FC<CustomersRefType> = ({
               duration: 1.5
             }}  
           >
-            <h2>{title}</h2>
+            <h2 className='text-3x 2xl:text-4xl'>{title}</h2>
           </motion.div>
           
           

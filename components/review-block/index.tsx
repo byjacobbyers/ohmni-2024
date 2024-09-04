@@ -35,7 +35,7 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
         id={`${anchor ? anchor : 'review-block-' + componentIndex}`}
         className={`review-block w-full flex flex-col items-center px-5`}
       >
-        <div className='container flex flex-col text-center gap-y-10'>
+        <div className='container flex flex-col text-center gap-y-10 2xl:gap-y-16'>
           
           <motion.div 
             className='w-full relative flex justify-center'
@@ -54,9 +54,9 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
               duration: 1.5
             }}  
           >
-            <h2 className='text-3xl max-w-6xl'>{title}</h2>
+            <h2 className='text-3xl 2xl:text-4xl 2xl:leading-relaxed max-w-6xl'>{title}</h2>
           </motion.div>
-          <div className='flex flex-wrap gap-16 w-full justify-center'>
+          <div className='flex flex-wrap gap-16 2xl:gap-24 w-full justify-center'>
             {reviews && reviews.map((review, index) => {
               return (
                 <motion.div 
@@ -95,14 +95,14 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
                         </div> */}
                       </div>
                       {review?.content && (
-                        <div className='2xl:text-lg space-y-2'>
+                        <div className='text-lg 2xl:text-xl space-y-2'>
                           <SimpleText content={review?.content} />
                         </div>
                       )}
                     </div>
                     <div className='flex flex-col text-center'>
-                      {review?.name && (<h3 className='2xl:text-2xl font-bold'>{review?.name}</h3>)}
-                      {review?.title && (<p className='2xl:text-lg'>{review?.title}</p>)}
+                      {review?.name && (<h3 className='text-2xl font-bold'>{review?.name}</h3>)}
+                      {review?.title && (<p className='text-lg'>{review?.title}</p>)}
                     </div>
                   </div>
                 </motion.div>
