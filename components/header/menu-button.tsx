@@ -37,7 +37,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
 								rotate: 45,
 								y: 15,
 								x: 3,
-								fill: '#ffffff',
+								fill: '#020817',
 							},
 						}}
 					/>
@@ -58,7 +58,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
 								rotate: -45,
 								y: 15,
 								x: 3,
-								fill: '#ffffff',
+								fill: '#020817',
 							},
 						}}
 					/>

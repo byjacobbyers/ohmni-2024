@@ -30,17 +30,16 @@ const MobileNav: React.FC<NavProps> = ({
 
   return (
     <NavigationMenu className='w-full max-w-none mobile-menu'>
-      <NavigationMenuList className='w-full flex flex-col gap-y-2 space-x-0 gap-x-2 lg:gap-x-10'>
+      <NavigationMenuList className='w-full flex flex-col gap-y-5 space-x-0 gap-x-2 lg:gap-x-10'>
         {data.items?.map((item: any, index: number) => (
           <NavigationMenuItem 
             key={'header' + index}
             id={'header' + index}
             className="w-full"
+            onClick={handleItemClick}
           >
-            <Route data={item} className='flex w-full'>
-              <Button variant="outline" onClick={handleItemClick}>
-                {item.title ? item.title : 'Needs title'}
-              </Button>
+            <Route data={item} className='flex w-full justify-center text-2xl' >
+              {item.title ? item.title : 'Needs title'}
             </Route>
           </NavigationMenuItem>
         ))}

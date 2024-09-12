@@ -139,7 +139,7 @@ const Header: React.FC<HeaderProps> = ({
             <MenuButton
               onClick={toggleDropdown}
               isOpen={isOpen}
-              defaultColor='#eeeeee'
+              defaultColor='#020817'
             />
           </div>
           
