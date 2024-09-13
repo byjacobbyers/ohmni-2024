@@ -36,7 +36,7 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
           return (
             <motion.div 
               key={`column-${index}`} 
-              className='mt-10 lg:mt-0 w-full lg:max-w-lg 2xl:max-w-xl flex flex-col gap-y-10 content items-center '
+              className='mt-10 lg:mt-0 w-full lg:max-w-xl 2xl:max-w-2xl flex flex-col gap-y-10 content items-center '
               initial={{ 
                 opacity: 0,
                 scale: 0.95
@@ -65,7 +65,7 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
                 </div>
               )}
               {column.content && (
-                <div className='prose 2xl:prose-h2:text-4xl 2xl:prose-h2:leading-relaxed max-w-none'>
+                <div className='prose 2xl:prose-h2:text-4xl 2xl:prose-h2:leading-relaxed 2xl:prose-h3:leading-relaxed max-w-none text-balance'>
                   <SimpleText content={column.content} />
                 </div>
               )}

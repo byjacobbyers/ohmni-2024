@@ -57,7 +57,7 @@ const PriceBlock: React.FC<PriceBlockType> = ({
             </motion.div>
           )}
           <motion.div 
-            className='flex flex-wrap lg:flex-nowrap justify-center gap-5'
+            className='flex flex-wrap xl:flex-nowrap justify-center gap-5'
             initial={{ 
               opacity: 0,
               scale: 0.95
