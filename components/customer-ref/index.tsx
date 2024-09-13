@@ -67,7 +67,7 @@ const CustomerRef: React.FC<CustomersRefType> = ({
           </motion.div>
           
           
-          <div className='flex flex-wrap justify-center items-center gap-16 mt-16'>
+          <div className='flex justify-center items-center gap-16 mt-16'>
             {customers.map((customer, index) => {
 
           
@@ -126,7 +126,7 @@ const CustomerRef: React.FC<CustomersRefType> = ({
                     alt={customer.title}
                     width={customer.image.asset.metadata.dimensions.width}
                     height={customer.image.asset.metadata.dimensions.height}
-                    className='object-cover object-center w-3/4 md:w-56 2xl:w-72 h-auto'
+                    className='object-cover object-center w-32 md:w-56 2xl:w-72 h-auto'
                     componentIndex={componentIndex}
                   />
                 </motion.div>
