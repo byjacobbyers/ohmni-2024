@@ -53,7 +53,7 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
               }}
             >
               {column.image && (
-                <div className={`${columnLength > 2 ? 'w-24' : 'w-28'} mb-5 p-4 rounded-3xl shadow-white/40 shadow`}>
+                <div className={`${columnLength > 2 ? 'w-24' : 'w-28'}`}>
                   <SanityImage
                     source={column.image}
                     alt={column.image.alt}
