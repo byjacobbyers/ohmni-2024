@@ -77,7 +77,7 @@ const PriceBlock: React.FC<PriceBlockType> = ({
               return (
                 <motion.div 
                   key={`price-${index}`} 
-                  className='w-full max-w-md bg-white border-2 border-black text-black p-5'
+                  className={`w-full max-w-md bg-white ${column.featured ? 'border-4 mt-10 md:mt-0': 'border-2 p-5'} border-black text-black p-5 relative`}
                   initial={{ 
                     opacity: 0,
                     scale: 0.95
@@ -172,6 +172,11 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                       </div>
                     </div>
                   </div>
+                  {column.featured && (
+                    <div className='bg-foreground text-white px-5 py-2 absolute -top-10 left-1/2 -translate-x-1/2 z-30'>
+                      We Recommend
+                    </div>
+                  )}
                 </motion.div>
               )
             })}
