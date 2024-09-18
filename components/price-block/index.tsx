@@ -34,28 +34,26 @@ const PriceBlock: React.FC<PriceBlockType> = ({
         id={`${anchor ? anchor : 'prices-block-' + componentIndex}`}
         className={`prices-block w-full flex flex-col items-center px-5`}
       >
-        <div className='container flex flex-wrap justify-center text-center gap-5'>
-          {content && (
-            <motion.div 
-              className='prose 2xl:prose-h2:text-4xl 2xl:prose-h2:leading-relaxed max-w-7xl w-full'
-              initial={{ 
-                opacity: 0,
-                scale: 0.95
-              }}
-              whileInView={{ 
-                opacity: 1,
-                scale: 1
-              }}
-              viewport={{ once: true }} 
-              transition={{ 
-                delay: componentIndex !== 0 ? 0.5 : 0,
-                type: 'spring',
-                duration: 1.5
-              }}
-            >
-              <SimpleText content={content} />
-            </motion.div>
-          )}
+        <div className='container flex flex-wrap justify-center text-center gap-x-5 gap-y-24'>
+          <motion.div 
+            className=' max-w-7xl w-full'
+            initial={{ 
+              opacity: 0,
+              scale: 0.95
+            }}
+            whileInView={{ 
+              opacity: 1,
+              scale: 1
+            }}
+            viewport={{ once: true }} 
+            transition={{ 
+              delay: componentIndex !== 0 ? 0.5 : 0,
+              type: 'spring',
+              duration: 1.5
+            }}
+          >
+            <h2>Pricing</h2>
+          </motion.div>
           <motion.div 
             className='flex flex-wrap xl:flex-nowrap justify-center gap-5'
             initial={{ 
