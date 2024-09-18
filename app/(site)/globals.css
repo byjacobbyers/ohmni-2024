@@ -72,3 +72,8 @@
     @apply font-inknut
   }
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 10rem;
+}
