@@ -49,7 +49,7 @@ const Footer: React.FC<FooterProps> = ({
       <small className='w-56 md:w-auto'>© {year} Ohmni Web Technologies. All rights reserved.</small>
       <div className='flex gap-y-10 text-white'>
         {socials?.linkedin && (
-          <Link href={socials?.linkedin}>
+          <Link href={socials?.linkedin} target="_blank">
             <div className='bg-background text-foreground h-10 w-10 rounded-full flex justify-center items-center'>
               <BiLogoLinkedin size={`1.5rem`} />
             </div>
