@@ -20,15 +20,43 @@ const OrgJsonLd = () => {
 					name: siteData.title,
 					foundingYear: siteData.foundingYear,
 					image: Logo.src, 
-					url: 'https://spotlightservice.co/',
+					url: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
 					address: {
 						'@type': 'PostalAddress',
 						addressCountry: siteData.addressCountry,
+						addressLocality: siteData.addressLocality,
+						streetAddress: siteData.address,
+						postalCode: siteData.postalCode,
+						addressRegion: siteData.addressRegion,
 					},
 					sameAs: [
 						siteData.social?.linkedin,
 					],
 					description: siteData.seo.metaDesc,
+					'@graph': [
+						{
+							'@context': 'https://schema.org',
+							'@type': 'WebPage',
+							name: siteData.title,
+							description: siteData.seo.metaDesc,
+							url: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
+							publisher: {
+								'@type': 'Organization',
+								name: siteData.title,
+								logo: {
+									'@type': 'ImageObject',
+									url: Logo.src
+								}
+							},
+						},
+						{
+							'@context': 'https://schema.org',
+							'@type': 'Person',
+							name: siteData.founder,
+							jobTitle: 'Founder & CEO',
+							sameAs: siteData.social?.linkedin,
+						}
+					]
 				}
 
 				setJsonLdContent(JSON.stringify(jsonLd))
