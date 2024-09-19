@@ -99,7 +99,7 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                             {column.title}
                           </p>
                         )}
-                        <div className='h-10'>
+                        <div className='h-10 price-column'>
                           {column.price ? (
                             <h2 className='text-4xl font-semibold'>
                               ${column.price}

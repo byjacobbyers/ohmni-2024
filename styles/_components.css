@@ -53,4 +53,9 @@ section {
   h2 {
     @apply text-4xl md:text-4xl 2xl:text-6xl;
   }
+  .price-column {
+    h2 {
+      @apply text-4xl md:text-4xl 2xl:text-6xl !leading-8 font-bold font-inter;
+    }
+  }
 }
