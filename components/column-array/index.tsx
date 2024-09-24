@@ -53,12 +53,12 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
               }}
             >
               {column.image && (
-                <div className={`${columnLength > 2 ? 'w-24' : 'w-28'}`}>
+                <div className={`${columnLength > 2 ? 'w-28' : 'w-56'}`}>
                   <SanityImage
                     source={column.image}
                     alt={column.image.alt}
-                    width={150}
-                    height={150}
+                    width={400}
+                    height={400}
                     componentIndex={1}
                     className='object-cover object-center'
                   />
