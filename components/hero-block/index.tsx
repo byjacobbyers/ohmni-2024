@@ -2,7 +2,6 @@
 
 // Tools
 import { motion } from "framer-motion"
-import Video from 'next-video';
 import MuxPlayer from '@mux/mux-player-react'
 
 
