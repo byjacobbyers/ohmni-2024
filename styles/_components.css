@@ -59,3 +59,13 @@ section {
     }
   }
 }
+
+/* Mux Video */
+mux-player {
+	--media-object-fit: cover;
+	--media-object-position: center;
+}
+
+.hide-controls {
+	--controls: none;
+}

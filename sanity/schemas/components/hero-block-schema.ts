@@ -23,6 +23,10 @@ const heroBlock = defineType({
         description: "The anchor for the section. No hash symbols. Optional.",
       }
     ),
+    {
+      name: 'video',
+      type: 'mux.video',
+    },
     defineField({
       name: 'image',
       type: 'defaultImage',

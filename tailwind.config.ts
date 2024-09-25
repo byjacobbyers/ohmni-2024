@@ -28,7 +28,7 @@ const config = {
         inter: ['var(--font-inter)'],
       },
       aspectRatio: {
-        'lottie': '2/1',
+        'lottie': '4/3',
       },
       colors: {
         border: "hsl(var(--border))",

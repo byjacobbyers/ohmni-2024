@@ -117,7 +117,6 @@ const simpleTextComponents = {
 {/* <PortableText value={content} components={simpleTextComponents} /> */}
 
 const SimpleText = ({ content }) => {
-	console.log('content', content)
 
 	return <PortableText value={content} components={simpleTextComponents} />
 }

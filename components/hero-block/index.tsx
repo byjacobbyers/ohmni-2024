@@ -2,6 +2,9 @@
 
 // Tools
 import { motion } from "framer-motion"
+import Video from 'next-video';
+import MuxPlayer from '@mux/mux-player-react'
+
 
 // Types
 import { HeroBlockType } from "@/types/components/hero-block-type"
@@ -17,8 +20,11 @@ const HeroBlock: React.FC<HeroBlockType> = ({
   componentIndex,
   content,
   anchor,
+  video,
   cta
 }) => {
+
+  console.log('video', video)
 
   if (active) {
     return (
@@ -47,7 +53,7 @@ const HeroBlock: React.FC<HeroBlockType> = ({
             <SimpleText content={content} />
           </motion.div>
           <motion.div 
-            className="w-full aspect-lottie md:w-1/3 bg-gray-500 mt-0 md:mt-24"
+            className="w-full aspect-lottie md:w-1/3  mt-0 md:mt-24"
             initial={{ 
               opacity: 0,
               scale: 0.95
@@ -63,6 +69,16 @@ const HeroBlock: React.FC<HeroBlockType> = ({
               duration: 1.5
             }}
           >
+            {video && (
+              <MuxPlayer
+                streamType='on-demand'
+                playbackId={video?.asset.playbackId}
+                autoPlay={true}
+                muted
+                loop={false}
+                className={`h-auto w-full hide-controls`}
+              />
+            )}
           </motion.div>
         </div>
       </section>

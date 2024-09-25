@@ -2,6 +2,7 @@ import { groq } from 'next-sanity'
 import { pageNavQuery } from '../components/page-nav-query'
 import { imageQuery } from '../objects/image-query'
 import { routeQuery } from '../objects/route-query'
+import { videoQuery } from '../objects/video-query'
 
 export const PagesQuery = groq`*[_type == "page" && defined(slug.current)][]`
 
@@ -20,6 +21,21 @@ export const PageQuery = groq`
     },
     sections[] {
       ...,
+      _type == 'heroBlock' => {
+        ...,
+        image {
+          ${imageQuery}
+        },
+        video {
+          ${videoQuery}
+        },
+        cta {
+          ...,
+          route {
+            ${routeQuery}
+          },
+        },
+      },
       _type == 'ctaBlock' => {
         ...,
        
@@ -43,10 +59,7 @@ export const PageQuery = groq`
               ${imageQuery}
             },
             video {
-              ${imageQuery}
-              poster {
-                ${imageQuery}
-              }
+              ${videoQuery}
             },
             content[] {
               ... // Assuming there can be rich text or other fields in content
@@ -76,10 +89,7 @@ export const PageQuery = groq`
       _type == 'videoBlock' => {
         ...,
         video {
-          ${imageQuery}
-          poster {
-            ${imageQuery}
-          }
+          ${videoQuery}
         },
       },
       _type == 'textBlock' => {

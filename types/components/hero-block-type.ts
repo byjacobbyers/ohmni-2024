@@ -1,6 +1,7 @@
 import { SimpleTextType } from '../objects/simple-text-type'
 import { DefaultImageType } from '../objects/default-img-type'
 import { CtaType } from '../objects/cta-type'
+import { DefaultVideoType } from '../objects/default-video-type'
 
 export type HeroBlockType = {
 	active?: boolean
@@ -8,6 +9,7 @@ export type HeroBlockType = {
 	anchor?: string
   formId?: string
   image?: DefaultImageType
+	video?: DefaultVideoType
 	content?: SimpleTextType
   cta?: CtaType
 }

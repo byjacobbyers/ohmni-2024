@@ -18,6 +18,7 @@ import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 import {apiVersion, dataset, projectId} from './sanity/env'
 import schemas from '@/sanity/schemas'
 import { presentationTool } from 'sanity/presentation'
+import {muxInput} from 'sanity-plugin-mux-input'
 
 export default defineConfig({
   basePath: '/studio',
@@ -53,6 +54,7 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
     media(),
+    muxInput(),
     vercelDeployTool(),
     presentationTool({
       locate,

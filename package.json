@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev & npx next-video sync -w",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@mux/mux-player-react": "^3.0.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-label": "^2.1.0",
@@ -27,6 +28,7 @@
     "lucide-react": "^0.424.0",
     "next": "14.2.5",
     "next-sanity": "9",
+    "next-video": "^1.2.0",
     "react": "^18",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18",
@@ -34,6 +36,7 @@
     "rxjs": "^7.8.1",
     "sanity": "^3.52.4",
     "sanity-plugin-media": "^2.3.2",
+    "sanity-plugin-mux-input": "^2.3.6",
     "sanity-plugin-vercel-deploy": "^3.3.4",
     "server-only": "^0.0.1",
     "styled-components": "6",

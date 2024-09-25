@@ -9,5 +9,6 @@ export type DefaultVideoType = {
 		_ref: string
 		_type: string
 		url: string
+		playbackId: string
 	}
 }
