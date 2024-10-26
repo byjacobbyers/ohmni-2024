@@ -1,19 +1,23 @@
 'use client'
 
 // Tools
+
+
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { isMobile } from 'react-device-detect';
+
+//Types
 import { ReviewBlockType } from "@/types/components/review-block-type"
+
+// Components
+import SimpleText from "@/components/simple-text"
+import { AiFillStar } from "react-icons/ai";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
-import { isMobile } from 'react-device-detect';
-
-// Components
-import SimpleText from "@/components/simple-text"
-import { AiFillStar } from "react-icons/ai";
 
 const ReviewBlock: React.FC<ReviewBlockType> = ({
   active,
@@ -56,12 +60,12 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
           >
             <h2 className='text-3xl 2xl:text-4xl 2xl:leading-relaxed max-w-6xl'>{title}</h2>
           </motion.div>
-          <div className='flex flex-wrap gap-16 2xl:gap-24 w-full justify-center'>
+          <div className='flex flex-wrap lg:flex-nowrap gap-5 w-full justify-center items-start'>
             {reviews && reviews.map((review, index) => {
               return (
                 <motion.div 
                   key={`review-${index}`} 
-                  className='review text-balance w-full max-w-2xl  p-5 bg-white border-2 border-black'
+                  className='review text-balance w-full p-5 bg-white border-2 border-black lg:basis-1/3'
                   initial={{ 
                     opacity: 0,
                     scale: 0.95
