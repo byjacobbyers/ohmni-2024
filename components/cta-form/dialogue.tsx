@@ -43,17 +43,19 @@ const CtaFormDialogue: React.FC<FormProps> = ({
       })
 
       if (response.ok) {
+
+        window.open('https://form.jotform.com/242533853174054', '_blank');
         
-        // Trigger file download
-        const link = document.createElement("a")
-        link.href = file.asset.url // Use the `file` prop passed to the component
-        link.download = file.asset.url.split('/').pop() ?? ''; // Get the filename from the URL
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
+        // // Trigger file download
+        // const link = document.createElement("a")
+        // link.href = file.asset.url // Use the `file` prop passed to the component
+        // link.download = file.asset.url.split('/').pop() ?? ''; // Get the filename from the URL
+        // document.body.appendChild(link)
+        // link.click()
+        // document.body.removeChild(link)
 
         // Show success message with download link as a fallback
-        setSuccessMessage('Your file is ready for download. If it didn\'t start automatically, click the link below.')
+        setSuccessMessage('You can also download the test. If it didn\'t start automatically, click the link below.')
       } else {
         alert('There was an issue submitting the form. Please try again.')
       }
@@ -85,10 +87,10 @@ const CtaFormDialogue: React.FC<FormProps> = ({
           <Button>{buttonText}</Button>
         </motion.div>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px]">
+      <DialogContent className="sm:max-w-[600px] ">
         
         {successMessage ? (
-          <div className="text-center space-y-3 prose 2xl:prose-h2:text-4xl 2xl:prose-h2:leading-relaxed">
+          <div className="text-center space-y-3 prose 2xl:prose-h2:text-4xl 2xl:prose-h2:leading-relaxed w-full mx-auto">
             <h2 className="text-2xl font-bold">Thank You!</h2>
             <p className="pb-3">{successMessage}</p>
             <a href={file.asset.url} download={file.asset.url.split('/').pop()} >
@@ -98,8 +100,8 @@ const CtaFormDialogue: React.FC<FormProps> = ({
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle>Download the Checklist</DialogTitle>
-              <DialogDescription>Fill out the form below to download the file.</DialogDescription>
+              <DialogTitle>Take the quiz now</DialogTitle>
+              <DialogDescription>Fill out the form to get the quiz.</DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 2xl:space-y-6 2xl:pt-4">
               <div className="grid grid-cols-2 gap-4 2xl:gap-8">
@@ -140,7 +142,7 @@ const CtaFormDialogue: React.FC<FormProps> = ({
                 </Select>
               </div>
               <DialogFooter>
-                <Button type="submit">Download File</Button>
+                <Button type="submit">Take Quiz</Button>
                 <DialogClose asChild>
                   <Button variant="outline">Cancel</Button>
                 </DialogClose>
