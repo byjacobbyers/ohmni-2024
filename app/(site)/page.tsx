@@ -20,7 +20,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 		title: global[0].seo.metaTitle,
 		description: global[0].seo?.metaDesc,
 		keywords: global[0].seo?.metaKeys,
-		image: urlFor(seoImage).width(800).height(600).url(),
+		image: urlFor(seoImage).width(1200).height(630).url(),
 	}
 
 	return {
