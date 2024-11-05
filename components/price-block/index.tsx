@@ -148,7 +148,7 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                                 }}
                                 className='flex w-full'
                               >
-                                <Button variant='default' size='lg'>
+                                <Button variant='default' size='lg' className={`${column.cta.plausibleEvent ? `plausible-event-name=${column.cta.plausibleEvent}` : ''}`}>
                                   {column.cta?.route?.title ? column.cta?.route?.title : 'Learn More'}
                                 </Button>
                               </motion.div>

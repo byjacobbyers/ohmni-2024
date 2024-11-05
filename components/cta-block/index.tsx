@@ -20,6 +20,8 @@ const CtaBlock: React.FC<CtaBlockType> = ({
   cta
 }) => {
 
+  console.log('cta', cta)
+
   if (active) {
     return (
       <section
@@ -83,7 +85,7 @@ const CtaBlock: React.FC<CtaBlockType> = ({
                   }}
                   className='flex w-full'
                 >
-                  <Button>
+                  <Button className={`${cta.plausibleEvent ? `plausible-event-name=${cta.plausibleEvent}` : ''}`}>
                     {cta?.route?.title ? cta?.route?.title : 'Learn More'}
                   </Button>
                 </motion.div>

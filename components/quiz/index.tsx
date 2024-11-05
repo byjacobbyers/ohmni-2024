@@ -334,13 +334,13 @@ export default function CMSQuiz() {
         <CardFooter className="flex flex-col gap-4">
           <Button
             onClick={() => window.open('https://calendly.com/ohmni/quiz', '_blank')}
-            className="w-full bg-primary"
+            className="w-full bg-primary plausible-event-name=Scheduled+Consultation"
           >
             Schedule a Consultation
           </Button>
           <Button 
             onClick={handleRetakeQuiz}
-            className="w-full"
+            className="w-full plausible-event-name=Retake+Quiz"
             variant="outline"
           >
             Retake Assessment
@@ -397,7 +397,7 @@ export default function CMSQuiz() {
           <Button 
             onClick={handleNext} 
             disabled={answers[`${currentSection}-${currentQuestion}`] === undefined}
-            className="w-full"
+            className={`w-full ${currentSection === quizData.sections.length - 1 && currentQuestion === quizData.sections[currentSection].questions.length - 1 ? 'plausible-event-name=Finished+Quiz' : ''}`}
           >
             {currentSection === quizData.sections.length - 1 && currentQuestion === quizData.sections[currentSection].questions.length - 1 ? 'View Results' : 'Next Question'}
           </Button>
@@ -451,7 +451,7 @@ export default function CMSQuiz() {
               </Select>
             </div>
             <DialogFooter>
-              <Button type="submit" className="w-full">Start Assessment</Button>
+              <Button type="submit" className="w-full plausible-event-name=Quiz+Form+Submit">Start Assessment</Button>
             </DialogFooter>
           </form>
         </DialogContent>

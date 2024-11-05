@@ -15,6 +15,10 @@ const cta = defineType({
 			initialValue: false,
 		}),
 		defineField({
+      name: 'plausibleEvent',
+      type: 'string',
+    }),
+		defineField({
 			title: 'Route',
 			name: 'route',
 			type: 'route',

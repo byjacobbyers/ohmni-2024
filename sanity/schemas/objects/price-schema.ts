@@ -19,6 +19,10 @@ const price = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'plausibleEvent',
+      type: 'string',
+    }),
+    defineField({
       name: 'price',
       type: 'number',
     }),
