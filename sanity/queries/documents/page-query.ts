@@ -38,7 +38,12 @@ export const PageQuery = groq`
       },
       _type == 'ctaBlock' => {
         ...,
-       
+        cta {
+          ...,
+          route {
+            ${routeQuery}
+          },
+        },
         image {
           ${imageQuery}
         },

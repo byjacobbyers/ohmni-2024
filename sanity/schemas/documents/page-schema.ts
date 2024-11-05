@@ -38,6 +38,7 @@ const page = defineType({
       group: 'page',
 			title: 'Page sections',
 			description: 'Add, edit, and reorder sections',
+      hidden: ({ document }) => document?.title === 'Quiz',
 		}),
     defineField({
       title: 'SEO / Share Settings',
