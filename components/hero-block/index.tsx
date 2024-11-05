@@ -23,15 +23,13 @@ const HeroBlock: React.FC<HeroBlockType> = ({
   cta
 }) => {
 
-  console.log('video', video)
-
   if (active) {
     return (
       <section 
         id={`${anchor ? anchor : 'hero-block-' + componentIndex}`}
         className='hero-block w-full px-5'
       >
-        <div className='container flex flex-wrap md:flex-nowrap flex-col-reverse md:flex-row w-full gap-x-24 gap-y-16'>
+        <div className='container flex flex-wrap md:flex-nowrap flex-col-reverse md:flex-row w-full gap-x-24'>
           <motion.div 
             className="w-full md:w-2/3 space-y-5 2xl:space-y-10"
             initial={{ 
