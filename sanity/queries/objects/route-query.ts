@@ -11,8 +11,7 @@ export const routeQuery = groq`
   },
   route,
   anchor,
-  link-> {
-    link,
-    nofollow
-  }
+  link,
+  nofollow,
+  blank
 `

@@ -20,7 +20,7 @@ const CtaBlock: React.FC<CtaBlockType> = ({
   cta
 }) => {
 
-  console.log('cta', cta)
+
 
   if (active) {
     return (
