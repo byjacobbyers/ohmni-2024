@@ -61,7 +61,7 @@ export const generateMetadata = async () => {
 		openGraph: {
 			title: `${result.title}`,
 			description: result.description,
-      url: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}${page?.slug}`,
       siteName: 'Ohmni Web Technologies',
       authors: ['Jacob Byers'],
 			images: [
@@ -81,7 +81,7 @@ export const generateMetadata = async () => {
       images: [result.image],
     },
 		alternates: {
-			canonical: '/',
+			canonical: `${process.env.NEXT_PUBLIC_SITE_URL}${page?.slug}`,
 		},
 	}
 }
