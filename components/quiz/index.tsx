@@ -404,7 +404,13 @@ export default function CMSQuiz() {
         </CardFooter>
       </Card>
 
-      <Dialog open={showUserInfoModal} onOpenChange={setShowUserInfoModal}>
+      <Dialog 
+        open={showUserInfoModal}
+        onOpenChange={(isOpen) => {
+          // Prevent closing when clicking outside
+          if (!isOpen) setShowUserInfoModal(true);
+        }}
+      >
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Before we begin...</DialogTitle>
@@ -427,30 +433,7 @@ export default function CMSQuiz() {
               <Label htmlFor="email">Company Email</Label>
               <Input id="email" type="email" name='email' value={userInfo.email} onChange={handleInputChange} required />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="companyName">Company Name</Label>
-              <Input id="companyName" name="companyName" value={userInfo.companyName} onChange={handleInputChange} required />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="companySize">Company Size</Label>
-              <Select
-                value={userInfo.companySize}
-                name="companySize"
-                onValueChange={(value: string) => setUserInfo({ ...userInfo, companySize: value })}
-                required
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select company size" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1-10">1-10 employees</SelectItem>
-                  <SelectItem value="11-50">11-50 employees</SelectItem>
-                  <SelectItem value="51-200">51-200 employees</SelectItem>
-                  <SelectItem value="200+">200+ employees</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <DialogFooter>
+            <DialogFooter className='mt-5'>
               <Button type="submit" className="w-full plausible-event-name=Quiz+Form+Submit">Start Assessment</Button>
             </DialogFooter>
           </form>
