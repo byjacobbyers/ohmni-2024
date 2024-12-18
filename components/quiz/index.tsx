@@ -95,7 +95,7 @@ const quizData = {
           points: -10
         },
         {
-          question: "Does your content pipeline involve designing entire pages instead of using reusable blocks?",
+          question: "Can you easily build pages using reusable blocks that automatically follow brand guidelines?",
           points: -10
         }
       ]
