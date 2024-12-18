@@ -23,10 +23,6 @@ const quizData = {
           points: 5
         },
         {
-          question: "Is the user interface intuitive and user-friendly?",
-          points: 5
-        },
-        {
           question: "Does the CMS offer customizable templates that adhere to your brand guidelines?",
           points: 5
         }
@@ -41,20 +37,8 @@ const quizData = {
           note: "You can take the test here: https://pagespeed.web.dev/. The best way to take this test is to run Chrome in incognito mode."
         },
         {
-          question: "Has your CMS experienced the 'White Screen of Death' in the last year?",
+          question: "Have you experienced major CMS errors like the 'White Screen of Death' in the past year?",
           points: -10
-        },
-        {
-          question: "Have there been any Internal Service Errors with your CMS in the past year?",
-          points: -5
-        },
-        {
-          question: "Have any Syntax Errors occurred with your CMS in the past year?",
-          points: -5
-        },
-        {
-          question: "Has your CMS encountered an error establishing a data connection within the last year?",
-          points: -5
         }
       ]
     },
@@ -62,11 +46,7 @@ const quizData = {
       name: "SEO Capabilities",
       questions: [
         {
-          question: "Does the CMS allow for easy editing of meta titles, descriptions, and URLs?",
-          points: 10
-        },
-        {
-          question: "Does your website fully utilize JSON-LD (otherwise known as structured data) for the organization that a CMS can edit?",
+          question: "Does the CMS allow easy editing of meta titles, descriptions, and URLs?",
           points: 10
         },
         {
@@ -83,40 +63,20 @@ const quizData = {
           points: 20
         },
         {
-          question: "Do you have to 'break' your CMS or rely on external plugins to introduce new content types to your website?",
-          points: -10
-        },
-        {
-          question: "Do you have to copy content from one page to another instead of referencing them? (For example, updating a list of customers on two different pages requires you to make the update twice instead of updating a single list which is then reflected on both pages automatically.)",
-          points: -10
-        },
-        {
-          question: "Are there limitations on the number of pages, posts, or products you can have?",
-          points: -10
-        },
-        {
-          question: "Can you easily build pages using reusable blocks that automatically follow brand guidelines?",
+          question: "Do you have to copy content across multiple pages instead of using reusable blocks?",
           points: -10
         }
       ]
     },
     {
-      name: "Content Flexibility and Management",
+      name: "Content Flexibility",
       questions: [
         {
-          question: "Does the CMS support various content types (e.g., blog posts, landing pages, product listings, podcasts)?",
+          question: "Does the CMS support various content types (e.g., blog posts, landing pages, product listings)?",
           points: 10
         },
         {
-          question: "Can you schedule content to be published in the future?",
-          points: 5
-        },
-        {
-          question: "Is there an efficient way to manage multimedia files (images, videos)?",
-          points: 5
-        },
-        {
-          question: "Can you collaborate in real-time with teammates when operating your CMS?",
+          question: "Can you collaborate in real time with teammates?",
           points: 10
         }
       ]
@@ -125,76 +85,25 @@ const quizData = {
       name: "Security",
       questions: [
         {
-          question: "Does the CMS receive regular security updates to protect against vulnerabilities?",
+          question: "Does the CMS receive regular security updates?",
           points: 10
         },
         {
-          question: "Are there built-in features for user roles and permissions to control access?",
-          points: 5
-        },
-        {
-          question: "Is it easy to back up and restore your site in case of an issue?",
+          question: "Is it easy to back up and restore your site?",
           points: 5
         }
       ]
-    },
-    {
-      name: "Support and Community",
-      questions: [
-        {
-          question: "Is there reliable customer support and documentation available?",
-          points: 5
-        },
-        {
-          question: "Does the CMS have an active developer community for additional resources and plugins?",
-          points: 5
-        },
-        {
-          question: "Are there training resources or communities to help your team stay proficient?",
-          points: 5
-        }
-      ]
-    },
-    {
-      name: "Integration and Extensibility",
-      questions: [
-        {
-          question: "Can the CMS integrate smoothly with marketing tools (e.g., CRM, email marketing platforms, analytics)?",
-          points: 10
-        },
-        {
-          question: "Can you add custom functionality without the use of plugins?",
-          points: 10
-        },
-        {
-          question: "Does the CMS support API integrations for custom development?",
-          points: 10
-        }
-      ]
-    },
-    {
-      name: "Cost",
-      questions: [
-        {
-          question: "Does the total cost of ownership (including licenses, hosting, maintenance, and development) align with your budget?",
-          points: 10
-        },
-        {
-          question: "Are there hidden costs or limitations that could affect your use case? Like plugins?",
-          points: -5
-        }
-      ]
-    }    
+    }
   ],
   scoring: {
-    max_points: 185,
+    max_points: 100,
     guide: {
       "80_percent_above": "Your CMS has excellent usability and performance, aligning well with your team's needs.",
       "60_to_79_percent": "Your CMS's usability and performance are adequate but may benefit from some improvements.",
       "below_60_percent": "Consider evaluating alternative CMS options that offer better usability and performance for your team."
     }
   }
-}
+};
 
 export default function CMSQuiz() {
   const [cookies, setCookie, removeCookie] = useCookies(['hasSubmittedForm', 'quizResults'])
