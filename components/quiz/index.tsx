@@ -328,19 +328,13 @@ export default function CMSQuiz() {
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleUserInfoSubmit} className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="firstName">First Name</Label>
-                <Input id="firstName" name="firstName" value={userInfo.firstName} onChange={handleInputChange} required />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="lastName">Last Name</Label>
-                <Input id="lastName" name='lastName' value={userInfo.lastName} onChange={handleInputChange} required />
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" type="name" name='name' value={userInfo.email} className='border border-black' onChange={handleInputChange} required />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Company Email</Label>
-              <Input id="email" type="email" name='email' value={userInfo.email} onChange={handleInputChange} required />
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" type="email" name='email' value={userInfo.email} className='border border-black' onChange={handleInputChange} required />
             </div>
             <DialogFooter className='mt-5'>
               <Button type="submit" className="w-full plausible-event-name=Quiz+Form+Submit">Start Assessment</Button>
