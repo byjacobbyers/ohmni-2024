@@ -1,6 +1,6 @@
 // Tools
 import { SanityDocument } from "next-sanity"
-import { sanityFetch } from "@/sanity/lib/fetch"
+import { sanityFetch } from "@/sanity/lib/live"
 import { client } from "@/sanity/lib/client"
 import { Metadata } from 'next'
 
@@ -72,10 +72,10 @@ export const generateMetadata = async (): Promise<Metadata> => {
 }
 
 export default async function Home() {
-  const page = await sanityFetch<SanityDocument>({
+  const { data: page } = await sanityFetch({
     query: PageQuery,
     params: { slug: "home" },
-  })
+  });
 
   return (
     <>

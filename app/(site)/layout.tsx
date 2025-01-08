@@ -4,6 +4,10 @@ import { cn } from "@/lib/utils"
 import "./globals.css";
 import Template from "./template"
 import Script from 'next/script';
+import { SanityLive } from "@/sanity/lib/live";
+import { DisableDraftMode } from "@/components/disable-draftmode";
+import { VisualEditing } from "next-sanity";
+import { draftMode } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Ohmni Web Technologies",
@@ -13,7 +17,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -35,6 +39,13 @@ export default function RootLayout({
       <body className="min-h-screen antialiased">
         <Template>
           {children}
+          <SanityLive />
+          {(await draftMode()).isEnabled && (
+            <>
+              <DisableDraftMode />
+              <VisualEditing />
+            </>
+          )}
         </Template>
       </body>
     </html>

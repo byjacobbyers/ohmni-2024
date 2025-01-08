@@ -1,7 +1,7 @@
 // Tools
 import { client } from "@/sanity/lib/client"
 import { SanityDocument } from "next-sanity"
-import { sanityFetch } from "@/sanity/lib/fetch"
+import { sanityFetch } from "@/sanity/lib/live"
 import Link from "next/link"
 import Image from 'next/image'
 
@@ -87,10 +87,10 @@ export const generateMetadata = async () => {
 }
 
 export default async function QuizPage() {
-	const page = await sanityFetch<SanityDocument>({
+	const { data: page } = await sanityFetch({
     query: PageQuery,
     params: { slug: "quiz" },
-  })
+  });
 
   return (
 		<>
