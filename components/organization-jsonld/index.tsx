@@ -11,7 +11,6 @@ const OrgJsonLd = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await client.fetch(SiteQuery)
-      console.log('data', data)
 			if (data && data.length > 0) {
 				const siteData = data[0]
 				const jsonLd = {
