@@ -41,13 +41,15 @@ const Footer: React.FC<FooterProps> = ({
   const date = new Date()
   const year = date.getFullYear()
 
+  console.log(items)
+
   return (
     <footer className='flex justify-between items-center bg-gray-900 px-5 py-10 text-white'>
-      {/* {items && (
-         <FooterNav data={items} />
-       )} */}
       <small className='w-56 md:w-auto'>© {year} Ohmni Web Technologies. All rights reserved.</small>
-      <div className='flex gap-y-10 text-white'>
+      <div className='flex gap-10 text-white'>
+        {items && (
+          <FooterNav data={items} />
+        )}
         {socials?.linkedin && (
           <Link href={socials?.linkedin} target="_blank">
             <div className='bg-background text-foreground h-10 w-10 rounded-full flex justify-center items-center'>
