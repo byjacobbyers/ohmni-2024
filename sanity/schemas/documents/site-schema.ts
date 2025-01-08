@@ -52,6 +52,12 @@ const site = defineType({
 			title: 'Founder',
 			type: 'string',
 		}),
+    defineField({
+      name: 'sameAs',
+      title: 'Same As',
+      type: 'array',
+      of: [{ type: 'string' }],
+    }),
 		defineField({
 			name: 'social',
 			title: 'Default Social',

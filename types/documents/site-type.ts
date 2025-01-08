@@ -11,6 +11,7 @@ export type SiteType = {
 	postalCode: string
 	addressCountry: string
 	founder: string
+  sameAs: string[]
 	social: SocialType
 	seo: SeoType
 }

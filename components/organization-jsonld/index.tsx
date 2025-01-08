@@ -11,9 +11,9 @@ const OrgJsonLd = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await client.fetch(SiteQuery)
+      console.log('data', data)
 			if (data && data.length > 0) {
 				const siteData = data[0]
-
 				const jsonLd = {
 					'@context': 'https://schema.org',
 					'@type': 'Organization',
@@ -29,9 +29,7 @@ const OrgJsonLd = () => {
 						postalCode: siteData.postalCode,
 						addressRegion: siteData.addressRegion,
 					},
-					sameAs: [
-						siteData.social?.linkedin,
-					],
+					sameAs: siteData.sameAs.map((url: string) => url),
 					description: siteData.seo.metaDesc,
 					'@graph': [
 						{
