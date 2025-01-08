@@ -15,10 +15,10 @@ import Logo from '@/public/title-logo.png'
 import Footer from '@/components/footer'
 
 export const generateMetadata = async () => {
-	const page = await sanityFetch<SanityDocument>({
-		query: PageQuery,
-		params: { slug: 'quiz' },
-	})
+	const { data: page } = await sanityFetch({
+    query: PageQuery,
+    params: { slug: "quiz" },
+  });
 	const global = await client.fetch(SiteQuery)
 
 
