@@ -1,4 +1,5 @@
 // Tools
+import * as React from 'react'
 import { Metadata } from 'next'
 import { QueryParams, SanityDocument } from "next-sanity"
 import { sanityFetch } from "@/sanity/lib/live";
@@ -25,12 +26,15 @@ export async function generateStaticParams() {
 }
 
 type Props = {
-	params: Promise<QueryParams>
-}
+  params: any;
+};
 
-export const generateMetadata = async (props: Props): Promise<Metadata> => {
-	const { params } = props
-	const page = await client.fetch<PageType>(PageQuery, params)
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+  
+	const { data: page } = await sanityFetch({
+    query: PageQuery,
+    params: await params,
+  });
 	const global = await client.fetch(SiteQuery)
 
 	if (!page) {
@@ -51,26 +55,48 @@ export const generateMetadata = async (props: Props): Promise<Metadata> => {
 
 	return {
 		generator: 'Next.js',
-		applicationName: 'TerraTrue',
-		publisher: 'TerraTrue',
-		robots: result.noIndex ? 'noindex' : 'index, follow',
+		applicationName: 'Ohmni Web Technologies',
+		publisher: 'Ohmni LLC',
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
 		metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
-		title: `Spotlight Service | ${result.title}`,
+		title: `${result.title} :: Ohmni Web Technologies`,
 		description: result.description,
 		openGraph: {
-			title: `Spotlight Service | ${result.title}`,
+			title: `${result.title}`,
 			description: result.description,
+      url: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
+      siteName: 'Ohmni Web Technologies',
+      authors: ['Jacob Byers'],
 			images: [
 				{
-					url: urlFor(result.image).width(1200).height(630).url(),
+					url: result.image,
 					width: 1200,
 					height: 630,
 					alt: result.title,
 				},
 			],
 		},
+    twitter: {
+      card: 'summary_large_image',
+      title: `${result.title}`,
+      description: result.description,
+      creator: '@byersjacob',
+      images: [result.image],
+    },
 		alternates: {
-			canonical: `/${page?.slug}`,
+			canonical: '/',
 		},
 	}
 }

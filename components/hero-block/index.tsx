@@ -108,8 +108,9 @@ const HeroBlock: React.FC<HeroBlockType> = ({
               duration: 1.5
             }}
           >
-            {video && (
+            {video && video?.asset.playbackId && (
               <MuxPlayer
+                key={video?.asset.playbackId}
                 streamType='on-demand'
                 playbackId={video?.asset.playbackId}
                 autoPlay={true}

@@ -24,18 +24,6 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("font-inter", inter.variable, "font-inknut", inknut.variable)}>
-      <head>
-        <Script
-          defer
-          data-domain="ohmni.tech"
-          src="https://plausible.io/js/script.hash.outbound-links.js"
-          strategy="afterInteractive"
-        />
-        {/* Plausible initialization script for custom events */}
-        <Script id="plausible-init" strategy="afterInteractive">
-          {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
-        </Script>
-      </head>
       <body className="min-h-screen antialiased">
         <Template>
           {children}
@@ -46,6 +34,16 @@ export default async function RootLayout({
               <VisualEditing />
             </>
           )}
+          <Script
+            defer
+            data-domain="ohmni.tech"
+            src="https://plausible.io/js/script.hash.outbound-links.js"
+            strategy="afterInteractive"
+          />
+          {/* Plausible initialization script for custom events */}
+          <Script id="plausible-init" strategy="afterInteractive">
+            {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
+          </Script>
         </Template>
       </body>
     </html>
