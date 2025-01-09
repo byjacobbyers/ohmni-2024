@@ -80,7 +80,7 @@ export default async function Home() {
   return (
     <>
 			<OrgJsonLd />
-			<Page page={page} /> 
+			<Page page={page} key={page._id} /> 
 		</>
   );
 }

@@ -8,6 +8,7 @@ export const PagesQuery = groq`*[_type == "page" && defined(slug.current)][]`
 
 export const PageQuery = groq`
   *[_type == "page" && slug.current == $slug][0]{
+    _id,
     title,
     "slug": slug.current,
     pageNav {

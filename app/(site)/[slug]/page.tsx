@@ -114,6 +114,6 @@ export default async function SinglePage({ params }: { params: Promise<QueryPara
   }
 
   return (
-    <Page page={page} /> 
+    <Page page={page} key={page._id} /> 
   );
 }
