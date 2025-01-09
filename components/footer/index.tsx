@@ -41,8 +41,6 @@ const Footer: React.FC<FooterProps> = ({
   const date = new Date()
   const year = date.getFullYear()
 
-  console.log(items)
-
   return (
     <footer className='flex justify-between items-center bg-gray-900 px-5 py-10 text-white'>
       <small className='w-56 md:w-auto'>© {year} Ohmni Web Technologies. All rights reserved.</small>
