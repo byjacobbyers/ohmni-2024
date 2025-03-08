@@ -10,6 +10,7 @@ export const PageQuery = groq`
   *[_type == "page" && slug.current == $slug][0]{
     _id,
     title,
+    shortKey,
     "slug": slug.current,
     pageNav {
       ${pageNavQuery}

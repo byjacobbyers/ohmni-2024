@@ -1,4 +1,5 @@
 import { defineType, defineField } from 'sanity'
+import { nanoid } from 'nanoid'
 
 const page = defineType({
 	name: 'page',
@@ -31,6 +32,13 @@ const page = defineType({
         maxLength: 96,
       },
       validation: Rule => Rule.required(),
+    }),
+    defineField({
+      name: 'shortKey',
+      title: 'View Key - Only needed for pages with a modal wall',
+      type: 'string',
+      readOnly: true,
+      initialValue: () => nanoid(10),
     }),
     defineField({
 			name: 'sections',

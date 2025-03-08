@@ -8,6 +8,7 @@ export type PageType = {
 	_createdAt: Date
 	_updatedAt: Date
 	title: string
+  shortKey: string
 	slug: {
 		current: string
 	}
