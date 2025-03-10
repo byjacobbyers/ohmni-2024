@@ -1,6 +1,5 @@
 // Tools
 import { client } from "@/sanity/lib/client"
-import { SanityDocument } from "next-sanity"
 import { sanityFetch } from "@/sanity/lib/live"
 import Link from "next/link"
 import Image from 'next/image'
@@ -13,6 +12,10 @@ import { SiteQuery } from '@/sanity/queries/documents/site-query'
 import QuizComponent from '@/components/quiz'
 import Logo from '@/public/title-logo.png'
 import Footer from '@/components/footer'
+
+interface QuizPageProps {
+  searchParams: { key?: string };
+}
 
 export const generateMetadata = async () => {
 	const { data: page } = await sanityFetch({
@@ -87,22 +90,26 @@ export const generateMetadata = async () => {
 }
 
 export default async function QuizPage() {
-	const { data: page } = await sanityFetch({
+
+  const { data: page } = await sanityFetch({
     query: PageQuery,
     params: { slug: "quiz" },
   });
 
   return (
-		<>
-			<main className="flex min-h-screen flex-col items-center justify-center pt-16 pb-24 bg-foreground">
-				<Link href="/">
-					<Image src={Logo} alt="Ohmni Logo" width={200} height={50} className="mb-4 lg:mb-8" />
-				</Link>
-				<h1 className="text-2xl lg:text-4xl font-bold mb-4 lg:mb-8 text-white text-center">CMS Evaluation Quiz</h1>
-				<QuizComponent />
-				
-			</main>
-			<Footer items={page?.pageNav?.footer} />
-		</>
-  )
+    <>
+      <main className="flex min-h-screen flex-col items-center justify-center pt-16 pb-24 bg-foreground">
+        <Link href="/">
+          <Image src={Logo} alt="Ohmni Logo" width={200} height={50} className="mb-4 lg:mb-8" />
+        </Link>
+        <h1 className="text-2xl lg:text-4xl font-bold mb-4 lg:mb-8 text-white text-center">
+          CMS Evaluation Quiz
+        </h1>
+        <QuizComponent 
+          pageKey={page.shortKey}
+        />
+      </main>
+      <Footer items={page?.pageNav?.footer} />
+    </>
+  );
 }

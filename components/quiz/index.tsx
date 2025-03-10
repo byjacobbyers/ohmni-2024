@@ -8,8 +8,8 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Label } from '@/components/ui/label'
 import { Progress } from '@/components/ui/progress'
 import { Input } from '@/components/ui/input'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
+import { useSearchParams } from 'next/navigation'
 
 const quizData = {
   title: "CMS Evaluation Checklist for Marketers",
@@ -105,7 +105,7 @@ const quizData = {
   }
 };
 
-export default function CMSQuiz() {
+export default function CMSQuiz({ pageKey }: { pageKey: string }) {
   const [cookies, setCookie, removeCookie] = useCookies(['hasSubmittedForm', 'quizResults'])
   const [currentSection, setCurrentSection] = useState(0)
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -121,12 +121,18 @@ export default function CMSQuiz() {
     companyName: '',
     companySize: '',
   })
+  const searchParams = useSearchParams()
+  const shortKey = searchParams.get('key')
 
   useEffect(() => {
+    if (shortKey && shortKey === pageKey) {
+      setShowUserInfoModal(false); // Ensure modal does not show
+      return;
+    }
+  
     if (!cookies.hasSubmittedForm) {
       setShowUserInfoModal(true);
     } else if (cookies.quizResults) {
-      // Directly access the cookie as an object without parsing
       const savedResults = cookies.quizResults;
       console.log('Parsed cookie score:', savedResults.score);
   
@@ -135,7 +141,7 @@ export default function CMSQuiz() {
         setShowResult(true);
       }
     }
-  }, [cookies.hasSubmittedForm, cookies.quizResults, removeCookie]);
+  }, [cookies.hasSubmittedForm, cookies.quizResults, removeCookie, shortKey, pageKey]);
 
   const handleAnswer = (answer: string) => {
     const newAnswers = { ...answers }
@@ -218,7 +224,7 @@ export default function CMSQuiz() {
 
   useEffect(() => {
     updateProgress()
-  }, [])
+  }, [updateProgress])
 
   if (showResult) {
     return (
