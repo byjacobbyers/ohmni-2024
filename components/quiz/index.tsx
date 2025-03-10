@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useCookies } from 'react-cookie'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
@@ -105,7 +105,22 @@ const quizData = {
   }
 };
 
-export default function CMSQuiz({ pageKey }: { pageKey: string }) {
+const QuizSearchParamsWrapper = ({ pageKey }: { pageKey: string }) => {
+  const searchParams = useSearchParams()
+  const shortKey = searchParams.get('key')
+
+  return <CMSQuiz pageKey={pageKey} shortKey={shortKey} />
+}
+
+export default function CMSQuizSuspense({ pageKey }: { pageKey: string }) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <QuizSearchParamsWrapper pageKey={pageKey} />
+    </Suspense>
+  )
+}
+
+function CMSQuiz({ pageKey, shortKey }: { pageKey: string; shortKey: string | null }) {
   const [cookies, setCookie, removeCookie] = useCookies(['hasSubmittedForm', 'quizResults'])
   const [currentSection, setCurrentSection] = useState(0)
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -121,8 +136,6 @@ export default function CMSQuiz({ pageKey }: { pageKey: string }) {
     companyName: '',
     companySize: '',
   })
-  const searchParams = useSearchParams()
-  const shortKey = searchParams.get('key')
 
   useEffect(() => {
     if (shortKey && shortKey === pageKey) {
