@@ -86,8 +86,7 @@ export const generateMetadata = async () => {
 	}
 }
 
-export default async function QuizPage({ searchParams }: { searchParams: { [key: string]: string } }) {
-  const key = searchParams.key;
+export default async function QuizPage() {
 	const { data: page } = await sanityFetch({
     query: PageQuery,
     params: { slug: "quiz" },
@@ -100,10 +99,7 @@ export default async function QuizPage({ searchParams }: { searchParams: { [key:
 					<Image src={Logo} alt="Ohmni Logo" width={200} height={50} className="mb-4 lg:mb-8" />
 				</Link>
 				<h1 className="text-2xl lg:text-4xl font-bold mb-4 lg:mb-8 text-white text-center">CMS Evaluation Quiz</h1>
-				<QuizComponent 
-          pageKey={page.shortKey}
-          shortKey={key}
-        />
+				<QuizComponent />
 				
 			</main>
 			<Footer items={page?.pageNav?.footer} />

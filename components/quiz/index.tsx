@@ -105,7 +105,7 @@ const quizData = {
   }
 };
 
-export default function CMSQuiz({ shortKey, pageKey }: { shortKey?: string, pageKey: string }) {
+export default function CMSQuiz() {
   const [cookies, setCookie, removeCookie] = useCookies(['hasSubmittedForm', 'quizResults'])
   const [currentSection, setCurrentSection] = useState(0)
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -123,14 +123,10 @@ export default function CMSQuiz({ shortKey, pageKey }: { shortKey?: string, page
   })
 
   useEffect(() => {
-    if (shortKey && shortKey === pageKey) {
-      setShowUserInfoModal(false); // Ensure modal does not show
-      return;
-    }
-  
     if (!cookies.hasSubmittedForm) {
       setShowUserInfoModal(true);
     } else if (cookies.quizResults) {
+      // Directly access the cookie as an object without parsing
       const savedResults = cookies.quizResults;
       console.log('Parsed cookie score:', savedResults.score);
   
@@ -139,7 +135,7 @@ export default function CMSQuiz({ shortKey, pageKey }: { shortKey?: string, page
         setShowResult(true);
       }
     }
-  }, [cookies.hasSubmittedForm, cookies.quizResults, removeCookie, shortKey, pageKey]);
+  }, [cookies.hasSubmittedForm, cookies.quizResults, removeCookie]);
 
   const handleAnswer = (answer: string) => {
     const newAnswers = { ...answers }
