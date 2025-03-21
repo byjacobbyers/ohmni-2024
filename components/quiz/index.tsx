@@ -10,6 +10,8 @@ import { Progress } from '@/components/ui/progress'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
 import { useSearchParams } from 'next/navigation'
+import Video from 'next-video';
+import results from '/videos/results.mp4';
 
 const quizData = {
   title: "CMS Evaluation Checklist for Marketers",
@@ -243,7 +245,8 @@ function CMSQuiz({ pageKey, shortKey }: { pageKey: string; shortKey: string | nu
     return (
       <Card className="w-full max-w-2xl mx-auto">
         <CardHeader>
-          <CardTitle>Your CMS Assessment Results</CardTitle>
+          <CardTitle className='mb-5'>Your CMS Assessment Results</CardTitle>
+          <Video src={results} />
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="p-6 bg-muted rounded-lg">

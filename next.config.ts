@@ -1,3 +1,4 @@
+import { withNextVideo } from "next-video/process";
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -13,4 +14,4 @@ const nextConfig = {
   // ...other config settings
 };
 
-export default nextConfig;
+export default withNextVideo(nextConfig);
