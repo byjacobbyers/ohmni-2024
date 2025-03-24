@@ -132,11 +132,8 @@ function CMSQuiz({ pageKey, shortKey }: { pageKey: string; shortKey: string | nu
   const [progress, setProgress] = useState(0)
   const [showUserInfoModal, setShowUserInfoModal] = useState(false)
   const [userInfo, setUserInfo] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
-    companyName: '',
-    companySize: '',
   })
 
   useEffect(() => {
@@ -352,7 +349,7 @@ function CMSQuiz({ pageKey, shortKey }: { pageKey: string; shortKey: string | nu
           <form onSubmit={handleUserInfoSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="name">Name</Label>
-              <Input id="name" type="name" name='name' value={userInfo.email} className='border border-black' onChange={handleInputChange} required />
+              <Input id="name" type="name" name='name' value={userInfo.name} className='border border-black' onChange={handleInputChange} required />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
