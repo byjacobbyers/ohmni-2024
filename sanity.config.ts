@@ -25,10 +25,10 @@ export default defineConfig({
   projectId,
   dataset,
   icon: OhmniIcon,
-  // scheduledPublishing: {
-	// 	enabled: false,
-	// },
-  //tasks: {enabled: false},
+  scheduledPublishing: {
+		enabled: false,
+	},
+  tasks: {enabled: false},
   // Add and edit the content schema in the './sanity/schema' folder
   schema: { types: schemas },
   document: {
