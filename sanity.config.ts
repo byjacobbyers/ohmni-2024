@@ -11,6 +11,7 @@ import { media } from 'sanity-plugin-media'
 import { deskStructure } from '@/sanity/structure'
 import OhmniIcon from '@/components/logo'
 import { resolve } from '@/sanity/presentation/resolve'
+import previewAction from '@/sanity/presentation/preview-action';
 import { defaultDocumentNode } from '@/sanity/lib/defaultDocumentNode'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
@@ -18,6 +19,7 @@ import {apiVersion, dataset, projectId} from './sanity/env'
 import schemas from '@/sanity/schemas'
 import { presentationTool } from 'sanity/presentation'
 import {muxInput} from 'sanity-plugin-mux-input'
+
 
 export default defineConfig({
   basePath: '/studio',
@@ -43,6 +45,12 @@ export default defineConfig({
       }
       return prev
     },
+    actions: (prev, context) => {
+      if (context.schemaType === 'page') {
+        return [...prev, previewAction];
+      }
+      return prev;
+    },
   },
   plugins: [
     structureTool({
@@ -57,8 +65,10 @@ export default defineConfig({
     presentationTool({
       resolve,
       previewUrl: {
+       // origin: 'https://ohmni.tech',
         previewMode: {
           enable: '/api/draft-mode/enable',
+          disable: '/api/draft-mode/disable',
         },
       },
     }),
