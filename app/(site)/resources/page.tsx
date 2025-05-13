@@ -94,8 +94,6 @@ export default async function QuizPage() {
     query: ResourcesQuery
   });
 
-  console.log(resourceBlockData)
-
   return (
     <>
     <Header items={page?.pageNav?.header} />
