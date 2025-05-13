@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import '@/styles/_components.css';
+@import '@/styles/_content.css';
 
 @layer base {
   :root {

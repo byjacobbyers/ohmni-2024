@@ -39,6 +39,7 @@ const page = defineType({
       type: 'string',
       readOnly: true,
       initialValue: () => nanoid(10),
+      hidden: ({ document }) => document?.title !== 'Quiz',
     }),
     defineField({
 			name: 'sections',

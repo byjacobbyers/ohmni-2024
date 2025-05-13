@@ -7,13 +7,10 @@ import { ReactNode } from 'react'
 // blocks
 import HeroBlock from '@/components/hero-block'
 import CtaBlock from '@/components/cta-block'
-import CtaForm from '@/components/cta-form'
 import ColumnBlock from '@/components/column-block'
 import PriceBlock from '@/components/price-block'
 import ReviewBlock from '@/components/review-block'
-import VideoBlock from '@/components/video-block'
 import TextBlock from '@/components/text-block'
-import FormBlock from '@/components/form-block'
 import CustomerRef from '../customer-ref'
 
 interface BodySerializers {
@@ -33,10 +30,6 @@ const bodySerializers: BodySerializers = {
 		component: CtaBlock,
 		wrapper: ({ children }) => <>{children}</>,
 	},
-	ctaForm: {
-		component: CtaForm,
-		wrapper: ({ children }) => <>{children}</>,
-	},
 	columnBlock: {
     component: ColumnBlock,
     wrapper: ({ children }) => <>{children}</>,
@@ -49,18 +42,10 @@ const bodySerializers: BodySerializers = {
     component: ReviewBlock,
     wrapper: ({ children }) => <>{children}</>,
   },
-  videoBlock: {
-    component: VideoBlock,
-    wrapper: ({ children }) => <>{children}</>,
-  },
   textBlock: {
     component: TextBlock,
     wrapper: ({ children }) => <>{children}</>,
   },
-	formBlock: {
-		component: FormBlock,
-		wrapper: ({ children }) => <>{children}</>,
-	},
 	customerRef: {
 		component: CustomerRef,
 		wrapper: ({ children }) => <>{children}</>,

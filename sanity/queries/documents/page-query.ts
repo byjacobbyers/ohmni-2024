@@ -50,12 +50,6 @@ export const PageQuery = groq`
           ${imageQuery}
         },
       },
-      _type == 'ctaForm' => {
-        ...,
-        file {
-          ${imageQuery}
-        },
-      },
       _type == 'columnBlock' => {
         ...,
         rows[] {
@@ -90,14 +84,14 @@ export const PageQuery = groq`
           ...,
           image {
             ${imageQuery}
+          },
+          cta {
+            ...,
+            route {
+              ${routeQuery}
+            },
           }
         }
-      },
-      _type == 'videoBlock' => {
-        ...,
-        video {
-          ${videoQuery}
-        },
       },
       _type == 'textBlock' => {
         ...,

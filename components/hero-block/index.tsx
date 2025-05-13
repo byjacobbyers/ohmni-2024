@@ -12,16 +12,24 @@ import { HeroBlockType } from "@/types/components/hero-block-type"
 import SimpleText from '@/components/simple-text'
 import Route from '@/components/route'
 import { Button } from "@/components/ui/button"
+import SanityImage from "@/components/sanity-image"
 
 
 const HeroBlock: React.FC<HeroBlockType> = ({
   active,
   componentIndex,
   content,
+  layout,
   anchor,
   video,
+  image,
   cta
 }) => {
+  let layoutClass = 'md:flex-row-reverse'
+
+  if (layout == 'image-right') {
+		layoutClass = 'md:flex-row'
+	}
 
   if (active) {
     return (
@@ -29,7 +37,7 @@ const HeroBlock: React.FC<HeroBlockType> = ({
         id={`${anchor ? anchor : 'hero-block-' + componentIndex}`}
         className='hero-block w-full px-5'
       >
-        <div className='container flex flex-wrap md:flex-nowrap flex-col-reverse md:flex-row w-full gap-x-24'>
+        <div className={`container flex flex-wrap md:flex-nowrap ${layoutClass} flex-col-reverse  w-full gap-x-24`}>
           <motion.div 
             className="w-full md:w-2/3 space-y-5 2xl:space-y-10"
             initial={{ 
@@ -108,16 +116,30 @@ const HeroBlock: React.FC<HeroBlockType> = ({
               duration: 1.5
             }}
           >
-            {video && video?.asset.playbackId && (
+            {video?.asset.playbackId ? (
               <MuxPlayer
-                key={video?.asset.playbackId}
+                key={video.asset.playbackId}
                 streamType='on-demand'
-                playbackId={video?.asset.playbackId}
+                playbackId={video.asset.playbackId}
                 autoPlay={true}
                 muted
                 loop={false}
                 className={`h-auto w-full hide-controls`}
+                onError={() => {
+                  // Optional: could set a state to trigger fallback
+                }}
               />
+            ) : (
+              image && (
+                <SanityImage
+                  source={image}
+                  alt={image?.alt || 'Fallback image'}
+                  width={700}
+                  height={440}
+                  componentIndex={componentIndex}
+                  className='object-cover object-center w-full h-auto'
+                />
+              )
             )}
           </motion.div>
         </div>

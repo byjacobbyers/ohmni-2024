@@ -24,6 +24,18 @@ const heroBlock = defineType({
       }
     ),
     {
+			title: 'Layout',
+			name: 'layout',
+			type: 'string',
+			initialValue: 'image-right',
+			options: {
+				list: [
+					{ title: 'Image Right', value: 'image-right' },
+					{ title: 'Image Left', value: 'image-left' },
+				],
+			},
+		},
+    {
       name: 'video',
       type: 'mux.video',
     },
@@ -49,11 +61,12 @@ const heroBlock = defineType({
     select: {
       title: 'content',
       active: 'active',
+      layout: 'layout',
     },
-    prepare({title, active}) {
+    prepare({title, active, layout}) {
       return {
         title: 'Hero',
-        subtitle: active ? 'Active' : 'Inactive',
+        subtitle: `${active ? 'Active' : 'Not Active'} - ${layout}`,
       }
     }
   }

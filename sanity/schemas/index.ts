@@ -16,12 +16,9 @@ import social from './components/social-schema'
 import columnBlock from './components/column-block-schema'
 import reviewBlock from './components/review-block-schema'
 import ctaBlock from './components/cta-block-schema'
-import videoBlock from './components/video-block-schema'
 import priceBlock from './components/price-block-schema'
 import textBlock from './components/text-block-schema'
 import heroBlock from './components/hero-block-schema'
-import ctaForm from './components/cta-form-schema'
-import formBlock from './components/form-block-schema'
 import customerRef from './components/customer-ref-schema'
 
 // objects
@@ -54,12 +51,9 @@ const schemas = [
   columnBlock,
   reviewBlock,
   ctaBlock,
-  videoBlock,
   priceBlock,
   textBlock,
   heroBlock,
-  ctaForm,
-  formBlock,
   customerRef,
 
   // objects

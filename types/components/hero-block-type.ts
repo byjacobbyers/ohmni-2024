@@ -11,5 +11,6 @@ export type HeroBlockType = {
   image?: DefaultImageType
 	video?: DefaultVideoType
 	content?: SimpleTextType
+  layout?: string
   cta?: CtaType
 }

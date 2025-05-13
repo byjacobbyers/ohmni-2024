@@ -12,10 +12,7 @@ const pageBuilder = defineField({
 		{ type: 'columnBlock' },
 		{ type: 'priceBlock' },
 		{ type: 'reviewBlock' },
-		{ type: 'videoBlock' },
 		{ type: 'textBlock' },
-		{ type: 'formBlock' },
-		{ type: 'ctaForm' },
 		{ type: 'customerRef' },
 	],
 	components: {
