@@ -7,16 +7,19 @@ import Image from 'next/image'
 // Queries
 import { PageQuery } from '@/sanity/queries/documents/page-query'
 import { SiteQuery } from '@/sanity/queries/documents/site-query'
+import { ResourcesQuery } from "@/sanity/queries/documents/resource-query"
 
 // Components
-import QuizComponent from '@/components/quiz'
-import Logo from '@/public/title-logo.png'
+import Header from "@/components/header"
 import Footer from '@/components/footer'
+import ResourceBlock from "@/components/resource-block"
+
+
 
 export const generateMetadata = async () => {
 	const { data: page } = await sanityFetch({
     query: PageQuery,
-    params: { slug: "quiz" },
+    params: { slug: "resources" },
   });
 	const global = await client.fetch(SiteQuery)
 
@@ -75,11 +78,6 @@ export const generateMetadata = async () => {
     twitter: {
       card: 'summary_large_image',
       title: `${result.title}`,
-      description: result.description,
-      creator: '@byersjacob',
-      images: [result.image],
-    },
-		alternates: {
 			canonical: `${process.env.NEXT_PUBLIC_SITE_URL}${page?.slug}`,
 		},
 	}
@@ -89,23 +87,22 @@ export default async function QuizPage() {
 
   const { data: page } = await sanityFetch({
     query: PageQuery,
-    params: { slug: "quiz" },
+    params: { slug: "resources" },
   });
+
+  const { data: resourceBlockData } = await sanityFetch({
+    query: ResourcesQuery
+  });
+
+  console.log(resourceBlockData)
 
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-center pt-16 pb-24 bg-foreground">
-        <Link href="/">
-          <Image src={Logo} alt="Ohmni Logo" width={200} height={50} className="mb-4 lg:mb-8" />
-        </Link>
-        <h1 className="text-2xl lg:text-4xl font-bold mb-4 lg:mb-8 text-white text-center">
-          CMS Evaluation Quiz
-        </h1>
-        <QuizComponent 
-          pageKey={page.shortKey}
-        />
+    <Header items={page?.pageNav?.header} />
+      <main className="flex min-h-screen flex-col items-center gap-y-24 py-12 lg:py-24 2xl:pt-48">
+        <ResourceBlock resources={resourceBlockData} />
       </main>
-      <Footer items={page?.pageNav?.footer} />
+    <Footer items={page?.pageNav?.footer} />
     </>
   );
 }
