@@ -13,6 +13,7 @@ import ReviewBlock from '@/components/review-block'
 import TextBlock from '@/components/text-block'
 import CustomerRef from '@/components/customer-ref'
 import FormBlock from '@/components/form-block'
+import FaqBlock from '@/components/faq-block'
 
 interface BodySerializers {
 	[key: string]: {
@@ -53,6 +54,10 @@ const bodySerializers: BodySerializers = {
 	},
   formBlock: {
     component: FormBlock,
+    wrapper: ({ children }) => <>{children}</>,
+  },
+  faqBlock: {
+    component: FaqBlock,
     wrapper: ({ children }) => <>{children}</>,
   },
 }

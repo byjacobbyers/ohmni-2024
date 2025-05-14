@@ -22,6 +22,7 @@ import textBlock from './components/text-block-schema'
 import heroBlock from './components/hero-block-schema'
 import customerRef from './components/customer-ref-schema'
 import formBlock from './components/form-block-schema'
+import faqBlock from './components/faq-block-schema'
 
 // objects
 import defaultImage from './objects/default-img-schema'
@@ -59,6 +60,7 @@ const schemas = [
   heroBlock,
   customerRef,
   formBlock,
+  faqBlock,
 
   // objects
   defaultImage,
