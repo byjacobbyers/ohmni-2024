@@ -21,6 +21,7 @@ import { presentationTool } from 'sanity/presentation'
 import {muxInput} from 'sanity-plugin-mux-input'
 
 
+
 export default defineConfig({
   basePath: '/studio',
   title: 'Ohmni',

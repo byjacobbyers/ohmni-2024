@@ -8,8 +8,27 @@ export const SiteQuery = groq`*[_type == "site"] {
   ...,
   seo {
     ...,
+    metaIcon {
+      ${imageQuery}
+    },
     shareGraphic {
       ${imageQuery}
     },
   },
 }`
+
+
+export const OgImageQuery = groq`
+  *[_id == $id][0]{
+    title,
+    seo {
+      metaTitle,
+      metaIcon {
+        ${imageQuery}
+      },
+      shareGraphic {
+        ${imageQuery}
+      },
+    },
+  }    
+`;

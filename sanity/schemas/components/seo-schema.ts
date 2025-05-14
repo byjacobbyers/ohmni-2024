@@ -4,6 +4,7 @@ const seo = defineType({
 	title: 'SEO / Share Settings',
 	name: 'seo',
 	type: 'object',
+  description: 'Customize SEO and share settings for this page. Share graphics are auto generated for each page, but you can override them here. If you want to use a custom share graphic, upload it to the media library and select it here.',
 	options: {
 		collapsible: true,
 		collapsed: true,
@@ -40,12 +41,22 @@ const seo = defineType({
 					),
 			}
 		),
-		defineField({
-			title: 'Share Graphic',
-			name: 'shareGraphic',
-			type: 'image',
-			description: 'Share graphics will be cropped to 1200x630',
-		},)
+    defineField(
+      {
+        title: 'Meta Icon',
+        name: 'metaIcon',
+        type: 'image',
+        description: 'This will override the default logo on the generated share graphic for the page.',
+      },
+    ),
+		defineField(
+      {
+        title: 'Share Graphic',
+        name: 'shareGraphic',
+        type: 'image',
+        description: 'Overrides auto generated Share Graphic with a custom one. Share graphics will be cropped to 1200x630 and will override the default share graphic.',
+      },
+    ),
 	],
 })
 

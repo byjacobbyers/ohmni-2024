@@ -50,7 +50,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 			: global[0].seo?.metaDesc,
 		image: page?.seo?.shareGraphic?.asset.url
 			? page?.seo.shareGraphic.asset.url
-			: global[0].seo?.shareGraphic.asset.url,
+			: `/api/og?id=${page._id}`
 	}
 
 	return {

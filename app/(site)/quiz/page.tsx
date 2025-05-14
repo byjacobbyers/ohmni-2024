@@ -34,7 +34,7 @@ export const generateMetadata = async () => {
 		keywords: page?.seo?.metaKeys ? page?.seo.metaKeys : global[0].seo?.metaKeys,
 		image: page?.seo?.shareGraphic?.asset.url
 			? page?.seo.shareGraphic.asset.url
-			: global[0].seo?.shareGraphic.asset.url,
+			: `/api/og?id=${page._id}`,
 	}
 
 	return {
