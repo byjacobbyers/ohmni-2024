@@ -3,6 +3,7 @@
 import {
 	EarthAmericasIcon,
 	ControlsIcon,
+  ClipboardIcon,
 } from '@sanity/icons'
 
 const Global = (S, context) => {
@@ -17,6 +18,16 @@ const Global = (S, context) => {
 						.title('Site Config')
 						.icon(ControlsIcon)
 						.child(S.editor().id('site').schemaType('site').documentId('site')),
+          S.documentTypeListItem('form')
+						.title('Forms')
+						.icon(ClipboardIcon)
+						.child(
+							S.documentList()
+								.title('Forms')
+								.menuItems(S.documentTypeList('form').getMenuItems())
+								.filter('_type == "form"')
+								.defaultOrdering([{ field: '_createdAt', direction: 'desc' }]),
+						),
 				]),
 		)
 }

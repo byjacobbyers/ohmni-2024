@@ -11,7 +11,8 @@ import ColumnBlock from '@/components/column-block'
 import PriceBlock from '@/components/price-block'
 import ReviewBlock from '@/components/review-block'
 import TextBlock from '@/components/text-block'
-import CustomerRef from '../customer-ref'
+import CustomerRef from '@/components/customer-ref'
+import FormBlock from '@/components/form-block'
 
 interface BodySerializers {
 	[key: string]: {
@@ -50,6 +51,10 @@ const bodySerializers: BodySerializers = {
 		component: CustomerRef,
 		wrapper: ({ children }) => <>{children}</>,
 	},
+  formBlock: {
+    component: FormBlock,
+    wrapper: ({ children }) => <>{children}</>,
+  },
 }
 
 function getSerializers() {

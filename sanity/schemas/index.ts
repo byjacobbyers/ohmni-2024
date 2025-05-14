@@ -8,6 +8,7 @@ import navigation from './documents/navigation-schema'
 import review from './documents/review-schema'
 import customer from './documents/customer-schema'
 import resource from './documents/resource-schema'
+import form from './documents/form-schema'
 
 // components
 import sections from './components/page-builder-schema'
@@ -20,6 +21,7 @@ import priceBlock from './components/price-block-schema'
 import textBlock from './components/text-block-schema'
 import heroBlock from './components/hero-block-schema'
 import customerRef from './components/customer-ref-schema'
+import formBlock from './components/form-block-schema'
 
 // objects
 import defaultImage from './objects/default-img-schema'
@@ -43,6 +45,7 @@ const schemas = [
   review,
   customer,
   resource,
+  form,
 
   // components
   sections,
@@ -55,6 +58,7 @@ const schemas = [
   textBlock,
   heroBlock,
   customerRef,
+  formBlock,
 
   // objects
   defaultImage,

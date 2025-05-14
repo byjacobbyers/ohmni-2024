@@ -14,6 +14,7 @@ const pageBuilder = defineField({
 		{ type: 'reviewBlock' },
 		{ type: 'textBlock' },
 		{ type: 'customerRef' },
+    { type: 'formBlock' },
 	],
 	components: {
 		input: PageBuilderInput,

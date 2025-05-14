@@ -95,6 +95,12 @@ export const PageQuery = groq`
       },
       _type == 'textBlock' => {
         ...,
+      },
+      _type == 'formBlock' => {
+        ...,
+        formId-> {
+          ...,
+        }
       }
     }
   }
