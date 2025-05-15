@@ -83,7 +83,7 @@ const GalleryBlock: React.FC<GalleryBlockType> = ({
         // Regular Layout with Carousel
         <div className="container flex flex-col items-center justify-center py-16 lg:py-24">
           <motion.div
-            className="w-full max-w-6xl"
+            className="w-full aspect-video max-w-4xl"
             initial={{
               opacity: 0,
               scale: 0.95,
