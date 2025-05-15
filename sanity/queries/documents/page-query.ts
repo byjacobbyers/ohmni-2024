@@ -101,7 +101,13 @@ export const PageQuery = groq`
         formId-> {
           ...,
         }
-      }
+      },
+      _type == 'videoBlock' => {
+        ...,
+        video {
+          ${videoQuery}
+        },
+      },
     }
   }
 `

@@ -16,6 +16,7 @@ const pageBuilder = defineField({
 		{ type: 'customerRef' },
     { type: 'formBlock' },
     { type: 'faqBlock' },
+    { type: 'videoBlock' },
 	],
 	components: {
 		input: PageBuilderInput,
