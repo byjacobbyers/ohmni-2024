@@ -20,6 +20,7 @@ const pageBuilder = defineField({
     { type: 'galleryBlock' },
     { type: 'videoBlock' },
     { type: 'spacerBlock' },
+    { type: 'dividerBlock' },
 	],
 	components: {
 		input: PageBuilderInput,

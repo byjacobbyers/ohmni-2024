@@ -30,7 +30,7 @@ const VideoBlock: React.FC<VideoBlockType> = ({
     >
       {fullScreen ? (
         // Full-Screen Layout
-        <div className="relative w-full h-[calc(100vh-178px)] overflow-hidden">
+        <div className="relative w-full h-[50vh] lg:h-[calc(100vh-178px)] overflow-hidden">
           <div className="absolute inset-0 z-10 bg-black bg-opacity-50 flex items-center justify-center">
             <motion.div
               className="text-white text-center max-w-4xl px-5"

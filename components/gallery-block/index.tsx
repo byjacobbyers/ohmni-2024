@@ -34,33 +34,11 @@ const GalleryBlock: React.FC<GalleryBlockType> = ({
     >
       {fullScreen ? (
         // Full-Screen Layout with Carousel
-        <div className="relative w-full h-[calc(100vh-178px)] overflow-hidden">
-          <div className="absolute inset-0 z-10 bg-black bg-opacity-50 flex items-center justify-center">
-            <motion.div
-              className="text-white text-center max-w-4xl px-5"
-              initial={{
-                opacity: 0,
-                scale: 0.95,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                delay: componentIndex !== 0 ? 0.5 : 0,
-                type: "spring",
-                duration: 1.5,
-              }}
-            >
-              {content && <SimpleText content={content} />}
-            </motion.div>
-          </div>
+        <div className="relative w-full lg:h-[calc(100vh-178px)] overflow-hidden">
+          {/* Carousel */}
           <Carousel
-            opts={{
-              align: "start",
-            }}
-            className="absolute inset-0 w-full h-full"
+            opts={{ align: "start" }}
+            className="w-full aspect-[16/9] lg:h-full"
           >
             <CarouselContent>
               {images?.map((image, index) => (
@@ -78,6 +56,28 @@ const GalleryBlock: React.FC<GalleryBlockType> = ({
             <CarouselPrevious className="z-50 left-10" />
             <CarouselNext className="z-50 right-10" />
           </Carousel>
+
+          {/* Text Overlay on Desktop */}
+          <div className="hidden lg:flex absolute inset-0 z-10 bg-black bg-opacity-50 items-center justify-center">
+            <motion.div
+              className="text-white text-center max-w-4xl px-5"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: componentIndex !== 0 ? 0.5 : 0,
+                type: "spring",
+                duration: 1.5,
+              }}
+            >
+              {content && <SimpleText content={content} />}
+            </motion.div>
+          </div>
+
+          {/* Text Below on Mobile */}
+          <div className="block lg:hidden  text-center py-6 px-4">
+            {content && <SimpleText content={content} />}
+          </div>
         </div>
       ) : (
         // Regular Layout with Carousel
@@ -117,8 +117,8 @@ const GalleryBlock: React.FC<GalleryBlockType> = ({
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="z-50 left-10" />
+            <CarouselNext className="z-50 right-10" />
             </Carousel>
           </motion.div>
           {content && (

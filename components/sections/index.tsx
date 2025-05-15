@@ -18,6 +18,7 @@ import VideoBlock from '@/components/video-block'
 import ImageBlock from '@/components/image-block'
 import GalleryBlock from '@/components/gallery-block'
 import SpacerBlock from '@/components/spacer-block'
+import DividerBlock from '@/components/divider-block'
 
 interface BodySerializers {
 	[key: string]: {
@@ -78,6 +79,10 @@ const bodySerializers: BodySerializers = {
   },
   spacerBlock: {
     component: SpacerBlock,
+    wrapper: ({ children }) => <>{children}</>,
+  },
+  dividerBlock: {
+    component: DividerBlock,
     wrapper: ({ children }) => <>{children}</>,
   },
 }
