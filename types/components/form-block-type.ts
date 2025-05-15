@@ -10,6 +10,7 @@ export type FormBlockType = {
     useBasinFormId: string;
   };
   content?: SimpleTextType;
+  subject?: string;
   fields?: {
     label: string;
     type: "string" | "textarea";

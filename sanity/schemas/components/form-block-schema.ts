@@ -27,6 +27,12 @@ const formBlock = defineType({
       to: [{ type: "form" }],
     }),
     defineField({
+      title: "Subject",
+      name: "subject",
+      type: "string",
+      description: "The subject line for the form submission. Optional.",
+    }),
+    defineField({
       title: "Content",
       name: "content",
       type: "simpleText",

@@ -15,6 +15,7 @@ const FormBlock: React.FC<FormBlockType> = ({
   anchor,
   formId,
   content,
+  subject,
   fields,
 }) => {
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -73,6 +74,16 @@ const FormBlock: React.FC<FormBlockType> = ({
               encType="multipart/form-data"
               onSubmit={handleSubmit}
             >
+              {/* Hidden Subject Field */}
+              <label htmlFor="subject" className="sr-only">
+                Subject
+              </label>
+              <input
+                type="hidden"
+                id="subject"
+                name="subject"
+                value={subject || ""}
+              />
               {fields?.map((field, index) => (
                 <div
                   key={index}
