@@ -114,6 +114,12 @@ export const PageQuery = groq`
           ${imageQuery}
         },
       },
+      _type == 'galleryBlock' => {
+        ...,
+        images[] {
+          ${imageQuery}
+        },
+      },
     }
   }
 `

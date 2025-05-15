@@ -17,6 +17,7 @@ const pageBuilder = defineField({
     { type: 'formBlock' },
     { type: 'faqBlock' },
     { type: 'imageBlock' },
+    { type: 'galleryBlock' },
     { type: 'videoBlock' },
 	],
 	components: {
