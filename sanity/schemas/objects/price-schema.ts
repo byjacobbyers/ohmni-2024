@@ -19,8 +19,18 @@ const price = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'plausibleEvent',
+      name: 'pricingType',
+      title: 'Pricing Type',
       type: 'string',
+      
+      options: {
+        list: [
+          { title: 'Retainer', value: 'retainer' },
+          { title: 'One-Time Project', value: 'oneTime' },
+        ],
+        layout: 'radio',
+      },
+      validation: Rule => Rule.required(),
     }),
     defineField({
       name: 'price',
@@ -48,18 +58,19 @@ const price = defineType({
     }),
   ],
   preview: {
-		select: {
-			name: 'title',
-      featured: 'featured',
-		},
-		prepare(selection) {
-			const { name, featured } = selection
-			return {
-				title: `${name}`,
-        subtitle: featured ? 'Featured' : '',
-			}
-		},
-	},
+    select: {
+      name: "title",
+      featured: "featured",
+      pricingType: "pricingType",
+    },
+    prepare(selection) {
+      const { name, featured, pricingType } = selection;
+      return {
+        title: `${name}`,
+        subtitle: `${featured ? "Featured - " : ""} ${pricingType ? `${pricingType}` : ""}`.trim(),
+      };
+    },
+  },
 });
 
 export default price;

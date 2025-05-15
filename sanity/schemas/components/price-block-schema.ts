@@ -33,7 +33,6 @@ const priceBlock = defineType({
           type: "price",
         },
       ],
-      validation: (Rule) => Rule.max(4),
     }),
   ],
   preview: {
