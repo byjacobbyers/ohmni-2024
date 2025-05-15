@@ -15,6 +15,7 @@ import CustomerRef from '@/components/customer-ref'
 import FormBlock from '@/components/form-block'
 import FaqBlock from '@/components/faq-block'
 import VideoBlock from '@/components/video-block'
+import ImageBlock from '@/components/image-block'
 
 interface BodySerializers {
 	[key: string]: {
@@ -63,6 +64,10 @@ const bodySerializers: BodySerializers = {
   },
   videoBlock: {
     component: VideoBlock,
+    wrapper: ({ children }) => <>{children}</>,
+  },
+  imageBlock: {
+    component: ImageBlock,
     wrapper: ({ children }) => <>{children}</>,
   },
 }

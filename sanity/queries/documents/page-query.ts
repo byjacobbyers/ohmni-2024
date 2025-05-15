@@ -108,6 +108,12 @@ export const PageQuery = groq`
           ${videoQuery}
         },
       },
+      _type == 'imageBlock' => {
+        ...,
+        image {
+          ${imageQuery}
+        },
+      },
     }
   }
 `
