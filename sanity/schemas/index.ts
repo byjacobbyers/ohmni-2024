@@ -26,6 +26,7 @@ import faqBlock from './components/faq-block-schema'
 import videoBlock from './components/video-block-schema'
 import imageBlock from './components/image-block-schema'
 import galleryBlock from './components/gallery-block-schema'
+import spacerBlock from './components/spacer-block-schema'
 
 // objects
 import defaultImage from './objects/default-img-schema'
@@ -67,6 +68,7 @@ const schemas = [
   videoBlock,
   imageBlock,
   galleryBlock,
+  spacerBlock,
 
   // objects
   defaultImage,

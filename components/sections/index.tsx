@@ -17,6 +17,7 @@ import FaqBlock from '@/components/faq-block'
 import VideoBlock from '@/components/video-block'
 import ImageBlock from '@/components/image-block'
 import GalleryBlock from '@/components/gallery-block'
+import SpacerBlock from '@/components/spacer-block'
 
 interface BodySerializers {
 	[key: string]: {
@@ -73,6 +74,10 @@ const bodySerializers: BodySerializers = {
   },
   galleryBlock: {
     component: GalleryBlock,
+    wrapper: ({ children }) => <>{children}</>,
+  },
+  spacerBlock: {
+    component: SpacerBlock,
     wrapper: ({ children }) => <>{children}</>,
   },
 }
