@@ -23,16 +23,13 @@ const PriceBlock: React.FC<PriceBlockType> = ({
   columns,
 }) => {
   const [isMobileView, setIsMobileView] = useState<boolean>(false)
-  const [selectedTab, setSelectedTab] = useState<string>('retainer')
+  const [selectedTab, setSelectedTab] = useState<string>('oneTime')
 
   useEffect(() => {
     setIsMobileView(isMobile)
   }, [])
 
   let filteredColumns = columns?.filter((column) => column.pricingType === selectedTab)
-
-  console.log('selectedTab', selectedTab)
-  console.log('filteredColumns', filteredColumns)
 
 
   if (active) {
