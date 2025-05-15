@@ -20,9 +20,14 @@ import { urlFor } from "@/components/sanity-image/url"
 export async function generateStaticParams() {
   const posts = await client.fetch(PagesQuery);
 
-  return posts.map((post: SanityDocument) => ({
-	slug: post?.slug?.current,
-  }))
+  // Add this filter
+  const excludedSlugs = ['quiz', 'resources'];
+
+  return posts
+    .filter((post: SanityDocument) => !excludedSlugs.includes(post?.slug?.current))
+    .map((post: SanityDocument) => ({
+      slug: post?.slug?.current,
+    }));
 }
 
 type Props = {
