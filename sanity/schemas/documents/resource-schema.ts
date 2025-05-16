@@ -32,6 +32,11 @@ const resource = defineType({
         list: [
           { title: 'Quiz', value: 'quiz' },
           { title: 'Document', value: 'document' },
+          { title: 'Video', value: 'video' },
+          { title: 'Podcast', value: 'podcast' },
+          { title: 'Webinar', value: 'webinar' },
+          { title: 'App', value: 'app' },
+          { title: 'Tool', value: 'tool' },
         ],
       },
       validation: Rule => Rule.required(),

@@ -1,8 +1,16 @@
 "use client"
 
 import type React from "react"
-import { FileText, ExternalLink, ClipboardCheck, Lock } from 'lucide-react'
-import Link from "next/link"
+import {
+  FileText,
+  ClipboardCheck,
+  Lock,
+  Video,
+  Podcast,
+  Calendar,
+  AppWindow,
+  Wrench
+} from 'lucide-react'
 import { motion } from "framer-motion"
 
 // Types
@@ -29,6 +37,16 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource, componentIndex = 
         return <FileText className="h-5 w-5" />
       case "quiz":
         return <ClipboardCheck className="h-5 w-5" />
+      case "video":
+        return <Video className="h-5 w-5" />
+      case "podcast":
+        return <Podcast className="h-5 w-5" />
+      case "webinar":
+        return <Calendar className="h-5 w-5" />
+      case "app":
+        return <AppWindow className="h-5 w-5" />
+      case "tool":
+        return <Wrench className="h-5 w-5" />
       default:
         return <FileText className="h-5 w-5" />
     }

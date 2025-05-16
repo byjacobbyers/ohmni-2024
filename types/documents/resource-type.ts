@@ -8,7 +8,7 @@ export type ResourceType = {
   title: string
   description: string
   lock: boolean
-  category: 'quiz' | 'document'
+  category: 'quiz' | 'document' | 'video' | 'podcast' | 'webinar' | 'app' | 'tool'
   image: DefaultImageType
   cta: CtaType
 }
