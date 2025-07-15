@@ -25,7 +25,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
 						height='1'
 						initial={'closed'}
 						animate={isOpen ? 'open' : 'closed'}
-						transition={{ duration: isOpen ? 1 : 0, ease: [0.83, 0, 0.17, 1] }}
+						transition={{ duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
 						variants={{
 							closed: {
 								rotate: 0,
@@ -46,7 +46,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
 						height='1'
 						initial={'closed'}
 						animate={isOpen ? 'open' : 'closed'}
-						transition={{ duration: isOpen ? 1 : 0, ease: [0.83, 0, 0.17, 1] }}
+						transition={{ duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
 						variants={{
 							closed: {
 								rotate: 0,
