@@ -10,8 +10,8 @@ import { Progress } from '@/components/ui/progress'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
 import { useSearchParams } from 'next/navigation'
-import Video from 'next-video';
-import results from '/videos/results.mp4';
+import MuxPlayer from "@mux/mux-player-react";
+import results from '@/videos/results.mp4.json';
 
 const quizData = {
   title: "CMS Evaluation Checklist for Marketers",
@@ -243,7 +243,11 @@ function CMSQuiz({ pageKey, shortKey }: { pageKey: string; shortKey: string | nu
       <Card className="w-full max-w-2xl mx-auto">
         <CardHeader>
           <CardTitle className='mb-5'>Your CMS Assessment Results</CardTitle>
-          <Video src={results} />
+          <MuxPlayer
+            streamType="on-demand"
+            playbackId={results.providerMetadata.mux.playbackId}
+            className="w-full h-auto"
+          />
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="p-6 bg-muted rounded-lg">

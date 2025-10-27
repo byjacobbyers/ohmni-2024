@@ -29,6 +29,7 @@
 			"@/helpers/*": ["./helpers/*"],
 			"@/sanity/*": ["./sanity/*"],
 			"@/data/*": ["./data/*"],
+			"@/videos/*": ["./videos/*"],
     },
     "target": "ES2017"
   },
