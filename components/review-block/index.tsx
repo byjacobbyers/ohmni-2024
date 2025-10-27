@@ -58,7 +58,7 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
               duration: 1.5
             }}  
           >
-            <h2 className='text-3xl 2xl:text-4xl 2xl:leading-relaxed max-w-6xl'>{title}</h2>
+            <h2 className='text-3xl 2xl:text-4xl !leading-relaxed max-w-6xl'>{title}</h2>
           </motion.div>
           <div className='flex flex-wrap lg:flex-nowrap gap-5 w-full justify-center items-start'>
             {reviews && reviews.map((review, index) => {
