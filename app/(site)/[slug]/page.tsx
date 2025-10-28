@@ -78,6 +78,11 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 		metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
 		title: `${result.title} :: Ohmni Web Technologies`,
 		description: result.description,
+		verification: {
+			other: {
+				"ahrefs-site-verification": "0dafbe29239d50a66aa81ea22f9f7519ee6271f165e9377698680c753a3c2eab",
+			},
+		},
 		openGraph: {
 			title: `${result.title}`,
 			description: result.description,

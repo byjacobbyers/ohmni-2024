@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     images: ['https://cdn.sanity.io/images/wq2mbvrt/production/e9827ee6bccd36318a9e09b113024f281b234966-1026x514.jpg'],
   },
+  verification: {
+    other: {
+      "ahrefs-site-verification": "0dafbe29239d50a66aa81ea22f9f7519ee6271f165e9377698680c753a3c2eab",
+    },
+  },
 };
 
 export default async function RootLayout({
