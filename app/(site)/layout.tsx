@@ -6,7 +6,7 @@ import Template from "./template"
 import Script from 'next/script';
 import { SanityLive } from "@/sanity/lib/live";
 import { DisableDraftMode } from "@/components/disable-draftmode";
-import { VisualEditing } from "next-sanity";
+import { VisualEditing } from "next-sanity/visual-editing";
 import { draftMode } from "next/headers";
 
 // Time-based ISR for all routes under (site)

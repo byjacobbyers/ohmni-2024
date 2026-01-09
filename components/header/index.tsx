@@ -35,7 +35,7 @@ const titleAnimation = {
     x: 0,
     transition: {
       delay: i * 0.1,
-      ease: [0.42, 0, 0.58, 1], // ease-in-out
+      ease: [0.42, 0, 0.58, 1] as const, // ease-in-out
     },
   }),
 }
@@ -50,7 +50,7 @@ const borderAnimation = {
     opacity: 1,
     transition: {
       duration: 1,
-      ease: [0.42, 0, 0.58, 1], // ease-in-out
+      ease: [0.42, 0, 0.58, 1] as const, // ease-in-out
     },
   },
 }
@@ -66,7 +66,7 @@ const navAnimation = {
     transition: {
       delay: .5, // This delay ensures it runs after the title and border animations
       duration: 0.5,
-      ease: [0.42, 0, 0.58, 1], // ease-in-out
+      ease: [0.42, 0, 0.58, 1] as const, // ease-in-out
     },
   },
 }
@@ -156,7 +156,7 @@ const Header: React.FC<HeaderProps> = ({
       <motion.div
         initial={'closed'}
         animate={isOpen ? 'open' : 'closed'}
-        transition={{ duration: 1, ease: [0.83, 0, 0.17, 1] }}
+        transition={{ duration: 1, ease: [0.83, 0, 0.17, 1] as const }}
         variants={{
           closed: {
             y: '-100%',
