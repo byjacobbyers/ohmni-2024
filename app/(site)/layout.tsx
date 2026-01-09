@@ -9,6 +9,10 @@ import { DisableDraftMode } from "@/components/disable-draftmode";
 import { VisualEditing } from "next-sanity";
 import { draftMode } from "next/headers";
 
+// Time-based ISR for all routes under (site)
+// You can adjust this value (in seconds) if you want faster or slower refreshes
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: "Ohmni Web Technologies",
   description: "A web development company that specializes in building custom web applications for business and marketing teams.",
