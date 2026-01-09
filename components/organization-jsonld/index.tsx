@@ -10,55 +10,77 @@ const OrgJsonLd = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const data = await client.fetch(SiteQuery)
-			if (data && data.length > 0) {
-				const siteData = data[0]
-				const jsonLd = {
+			try {
+				const siteData = await client.fetch(SiteQuery)
+				if (!siteData) return
+
+				const data = Array.isArray(siteData) ? siteData[0] : siteData
+				if (!data) return
+
+				// Normalize baseUrl to remove trailing slash
+				const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://ohmni.tech').replace(/\/$/, '')
+				const logoUrl = `${baseUrl}${Logo.src}`
+				
+				// Organization schema
+				const organization = {
 					'@context': 'https://schema.org',
 					'@type': 'Organization',
-					name: siteData.title,
-					foundingYear: siteData.foundingYear,
-					image: Logo.src, 
-					url: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
-					address: {
-						'@type': 'PostalAddress',
-						addressCountry: siteData.addressCountry,
-						addressLocality: siteData.addressLocality,
-						streetAddress: siteData.address,
-						postalCode: siteData.postalCode,
-						addressRegion: siteData.addressRegion,
+					name: data.title,
+					...(data.foundingYear && { foundingDate: data.foundingYear }),
+					logo: {
+						'@type': 'ImageObject',
+						url: logoUrl,
 					},
-					sameAs: siteData.sameAs.map((url: string) => url),
-					description: siteData.seo.metaDesc,
-					'@graph': [
-						{
-							'@context': 'https://schema.org',
-							'@type': 'WebPage',
-							name: siteData.title,
-							description: siteData.seo.metaDesc,
-							url: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
-							publisher: {
-								'@type': 'Organization',
-								name: siteData.title,
-								logo: {
-									'@type': 'ImageObject',
-									url: Logo.src
-								}
-							},
+					image: logoUrl,
+					url: baseUrl,
+					...(data.address && {
+						address: {
+							'@type': 'PostalAddress',
+							...(data.addressCountry && { addressCountry: data.addressCountry }),
+							...(data.addressLocality && { addressLocality: data.addressLocality }),
+							...(data.address && { streetAddress: data.address }),
+							...(data.postalCode && { postalCode: data.postalCode }),
+							...(data.addressRegion && { addressRegion: data.addressRegion }),
 						},
-						{
-							'@context': 'https://schema.org',
-							'@type': 'Person',
-							name: siteData.founder,
-							jobTitle: 'Founder & CEO',
-							sameAs: siteData.social?.linkedin,
-						}
-					]
+					}),
+					...(data.sameAs && data.sameAs.length > 0 && {
+						sameAs: data.sameAs.map((url: string) => url),
+					}),
+					...(data.seo?.metaDesc && { description: data.seo.metaDesc }),
 				}
 
-				setJsonLdContent(JSON.stringify(jsonLd))
-			} else {
-				console.log('No data received from fetch')
+				// Website schema
+				const website = {
+					'@context': 'https://schema.org',
+					'@type': 'WebSite',
+					name: data.title,
+					url: baseUrl,
+					publisher: {
+						'@type': 'Organization',
+						name: data.title,
+						logo: {
+							'@type': 'ImageObject',
+							url: logoUrl,
+						},
+					},
+				}
+
+				// Person schema (if founder exists)
+				const person = data.founder ? {
+					'@context': 'https://schema.org',
+					'@type': 'Person',
+					name: data.founder,
+					...(data.social?.linkedin && {
+						sameAs: [data.social.linkedin].filter(Boolean),
+					}),
+				} : null
+
+				// Combine all schemas into an array
+				const schemas = [organization, website, person].filter(Boolean)
+
+				setJsonLdContent(JSON.stringify(schemas))
+			} catch (error) {
+				console.error('Error fetching site data for JSON-LD:', error)
 			}
 		}
 
@@ -67,7 +89,7 @@ const OrgJsonLd = () => {
 
 	return jsonLdContent ? (
 		<Script
-			id='app-ld-json'
+			id='organization-ld-json'
 			type='application/ld+json'
 			dangerouslySetInnerHTML={{ __html: jsonLdContent }}
 		/>
