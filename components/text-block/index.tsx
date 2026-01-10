@@ -11,6 +11,9 @@ import { TextBlockType } from "@/types/components/text-block-type"
 // Components
 import NormalText from "@/components/normal-text"
 
+// Animations
+import { scrollReveal } from "@/lib/animations"
+
 // Function to sanitize content alignment
 const sanitizeContentAlignment = (alignment: string) => {
   return alignment.replace(/[\u200B-\u200D\uFEFF]/g, '')
@@ -47,20 +50,10 @@ const TextBlock: React.FC<TextBlockType> = ({
         {content.text && (
           <motion.div 
             className={`container content`}
-            initial={{ 
-              opacity: 0,
-              scale: 0.95
-            }}
-            whileInView={{ 
-              opacity: 1,
-              scale: 1
-            }}
-            viewport={{ once: true }} 
-            transition={{ 
-              delay: componentIndex !== 0 ? 0.5 : 0,
-              type: 'spring',
-              duration: 1.5
-            }}
+            initial={scrollReveal.initial}
+            whileInView={scrollReveal.animate}
+            viewport={scrollReveal.viewport}
+            transition={scrollReveal.transition}
             style={alignmentStyles}
           >
             <NormalText content={content.text} />

@@ -11,6 +11,9 @@ import { ColumnArrayType } from "@/types/arrays/column-array-type"
 import SimpleText from "@/components/simple-text"
 import ColumnArray from "@/components/column-array"
 
+// Animations
+import { scrollReveal } from "@/lib/animations"
+
 const ColumnBlock: React.FC<ColumnBlockType> = ({
   active,
   componentIndex,
@@ -30,20 +33,10 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
           {content && (
             <motion.div 
               className='content max-w-7xl w-full pb-16 2xl:pb-24'
-              initial={{ 
-                opacity: 0,
-                scale: 0.95
-              }}
-              whileInView={{ 
-                opacity: 1,
-                scale: 1
-              }}
-              viewport={{ once: true }} 
-              transition={{ 
-                delay: componentIndex !== 0 ? 0.5 : 0,
-                type: 'spring',
-                duration: 1.5
-              }}
+              initial={scrollReveal.initial}
+              whileInView={scrollReveal.animate}
+              viewport={scrollReveal.viewport}
+              transition={scrollReveal.transition}
             >
               <SimpleText content={content} />
             </motion.div>

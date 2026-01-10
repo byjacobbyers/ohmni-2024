@@ -15,6 +15,9 @@ import { Button } from "@/components/ui/button"
 import SanityImage from "@/components/sanity-image"
 import Threads from '@/components/Threads'
 
+// Animations
+import { scrollReveal } from "@/lib/animations"
+
 
 const HeroBlock: React.FC<HeroBlockType> = ({
   active,
@@ -41,39 +44,19 @@ const HeroBlock: React.FC<HeroBlockType> = ({
         <div className={`container flex flex-wrap md:flex-nowrap ${layoutClass} flex-col-reverse  w-full gap-x-24 gap-y-10`}>
           <motion.div 
             className="w-full md:w-2/3 space-y-5 2xl:space-y-10"
-            initial={{ 
-              opacity: 0,
-              scale: 0.95
-            }}
-            whileInView={{ 
-              opacity: 1,
-              scale: 1
-            }}
-            viewport={{ once: true }} 
-            transition={{ 
-              delay: componentIndex !== 0 ? 0.5 : 0,
-              type: 'spring',
-              duration: 1.5
-            }}
+            initial={scrollReveal.initial}
+            whileInView={scrollReveal.animate}
+            viewport={scrollReveal.viewport}
+            transition={scrollReveal.transition}
           >
             <SimpleText content={content} />
             {cta && cta.active && (
               <motion.div 
                 className='flex justify-center md:justify-start pt-5'
-                initial={{ 
-                  opacity: 0,
-                  scale: 0.95
-                }}
-                whileInView={{ 
-                  opacity: 1,
-                  scale: 1
-                }}
-                viewport={{ once: true }} 
-                transition={{ 
-                  delay: componentIndex !== 0 ? 0.5 : 0,
-                  type: 'spring',
-                  duration: 1.5
-                }}
+                initial={scrollReveal.initial}
+                whileInView={scrollReveal.animate}
+                viewport={scrollReveal.viewport}
+                transition={{ ...scrollReveal.transition, delay: 0.1 }}
               >
                 <Route data={cta.route} className='flex'>
                   <motion.div
@@ -102,20 +85,10 @@ const HeroBlock: React.FC<HeroBlockType> = ({
           </motion.div>
           <motion.div 
             className="w-full aspect-lottie md:w-1/3  mt-0 md:mt-24"
-            initial={{ 
-              opacity: 0,
-              scale: 0.95
-            }}
-            whileInView={{ 
-              opacity: 1,
-              scale: 1
-            }}
-            viewport={{ once: true }} 
-            transition={{ 
-              delay: componentIndex !== 0 ? 0.5 : 0,
-              type: 'spring',
-              duration: 1.5
-            }}
+            initial={scrollReveal.initial}
+            whileInView={scrollReveal.animate}
+            viewport={scrollReveal.viewport}
+            transition={scrollReveal.transition}
           >
             <div style={{ width: '100%', aspectRatio: '1 / 1', position: 'relative', maxWidth: '1080px' }} className="bg-white border-2 border-black">
               <Threads

@@ -11,6 +11,9 @@ import SimpleText from '@/components/simple-text'
 import Route from '@/components/route'
 import { Button } from "@/components/ui/button"
 
+// Animations
+import { scrollReveal } from "@/lib/animations"
+
 
 const CtaBlock: React.FC<CtaBlockType> = ({
   active,
@@ -30,20 +33,10 @@ const CtaBlock: React.FC<CtaBlockType> = ({
       >
         <motion.div 
           className='container py-16 lg:py-24 flex flex-col justify-center items-center p-5 bg-white w-full border-2 border-black min-h-24'
-          initial={{ 
-            opacity: 0,
-            scale: 0.95
-          }}
-          whileInView={{ 
-            opacity: 1,
-            scale: 1
-          }}
-          viewport={{ once: true }} 
-          transition={{ 
-            delay: componentIndex !== 0 ? 0.5 : 0,
-            type: 'spring',
-            duration: 1.5
-          }}
+          initial={scrollReveal.initial}
+          whileInView={scrollReveal.animate}
+          viewport={scrollReveal.viewport}
+          transition={scrollReveal.transition}
         >
           {content && (
             <div className='text-center max-w-4xl 2xl:max-w-6xl pb-5 md:pb-10 content'>
@@ -53,20 +46,10 @@ const CtaBlock: React.FC<CtaBlockType> = ({
           {cta && cta.active && (
             <motion.div 
               className='flex justify-center md:justify-start'
-              initial={{ 
-                opacity: 0,
-                scale: 0.95
-              }}
-              whileInView={{ 
-                opacity: 1,
-                scale: 1
-              }}
-              viewport={{ once: true }} 
-              transition={{ 
-                delay: componentIndex !== 0 ? 0.5 : 0,
-                type: 'spring',
-                duration: 1.5
-              }}
+              initial={scrollReveal.initial}
+              whileInView={scrollReveal.animate}
+              viewport={scrollReveal.viewport}
+              transition={{ ...scrollReveal.transition, delay: 0.1 }}
             >
               <Route data={cta.route} className='flex'>
                 <motion.div

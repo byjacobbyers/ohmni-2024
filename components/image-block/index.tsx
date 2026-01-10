@@ -10,6 +10,9 @@ import { ImageBlockType } from "@/types/components/image-block-type"
 import SimpleText from "@/components/simple-text"
 import SanityImage from "@/components/sanity-image"
 
+// Animations
+import { scrollReveal } from "@/lib/animations"
+
 const ImageBlock: React.FC<ImageBlockType> = ({
   active,
   componentIndex,
@@ -32,14 +35,10 @@ const ImageBlock: React.FC<ImageBlockType> = ({
           <div className="hidden lg:flex absolute inset-0 z-10 bg-black bg-opacity-50 items-center justify-center">
             <motion.div
               className="text-white text-center max-w-4xl px-5"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: componentIndex !== 0 ? 0.5 : 0,
-                type: "spring",
-                duration: 1.5,
-              }}
+              initial={scrollReveal.initial}
+              whileInView={scrollReveal.animate}
+              viewport={scrollReveal.viewport}
+              transition={scrollReveal.transition}
             >
               {content && <SimpleText content={content} />}
             </motion.div>
@@ -68,20 +67,10 @@ const ImageBlock: React.FC<ImageBlockType> = ({
         <div className="container flex flex-col items-center justify-center py-16 lg:py-24">
           <motion.div
             className="w-full aspect-video max-w-4xl"
-            initial={{
-              opacity: 0,
-              scale: 0.95,
-            }}
-            whileInView={{
-              opacity: 1,
-              scale: 1,
-            }}
-            viewport={{ once: true }}
-            transition={{
-              delay: componentIndex !== 0 ? 0.5 : 0,
-              type: "spring",
-              duration: 1.5,
-            }}
+            initial={scrollReveal.initial}
+            whileInView={scrollReveal.animate}
+            viewport={scrollReveal.viewport}
+            transition={scrollReveal.transition}
           >
             {image && (
               <SanityImage
@@ -97,20 +86,10 @@ const ImageBlock: React.FC<ImageBlockType> = ({
           {content && (
             <motion.div
               className="text-center max-w-4xl mt-10"
-              initial={{
-                opacity: 0,
-                scale: 0.95,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                delay: componentIndex !== 0 ? 0.5 : 0,
-                type: "spring",
-                duration: 1.5,
-              }}
+              initial={scrollReveal.initial}
+              whileInView={scrollReveal.animate}
+              viewport={scrollReveal.viewport}
+              transition={{ ...scrollReveal.transition, delay: 0.1 }}
             >
               <SimpleText content={content} />
             </motion.div>
