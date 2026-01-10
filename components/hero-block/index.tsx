@@ -59,7 +59,7 @@ const HeroBlock: React.FC<HeroBlockType> = ({
             <SimpleText content={content} />
             {cta && cta.active && (
               <motion.div 
-                className='flex justify-center md:justify-start'
+                className='flex justify-center md:justify-start pt-5'
                 initial={{ 
                   opacity: 0,
                   scale: 0.95
